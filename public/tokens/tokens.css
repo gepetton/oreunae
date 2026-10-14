@@ -1,0 +1,39 @@
+/* Canonical OREUNAE tokens. */
+:root, [data-theme="light"] {
+  --ob-background: #F6F7F2;
+  --ob-surface: #FFFFFF;
+  --ob-surface-subtle: #EFF3E6;
+  --ob-text: #1D271C;
+  --ob-text-muted: #5D6859;
+  --ob-border: #DFE3D8;
+  --ob-accent: #CEE879;
+  --ob-accent-text: #1D271C;
+  --ob-positive: #4D692C;
+  --ob-negative: #B34F43;
+  --ob-focus: #4D692C;
+  --ob-selection: #EFF3E6;
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  --ob-background: #111412;
+  --ob-surface: #1A201A;
+  --ob-surface-subtle: #20271F;
+  --ob-text: #F0F3E9;
+  --ob-text-muted: #ADB7A6;
+  --ob-border: #30392E;
+  --ob-accent: #D6EE84;
+  --ob-accent-text: #111412;
+  --ob-positive: #D6EE84;
+  --ob-negative: #EC9B87;
+  --ob-focus: #D6EE84;
+  --ob-selection: #303B23;
+  color-scheme: dark;
+}
+:root { --ob-font-sans:"Geist Sans","Pretendard",sans-serif; --ob-font-mono:"Geist Mono",monospace; --ob-radius-card:16px; --ob-radius-button:10px; --ob-touch:44px; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--ob-background); color:var(--ob-text); font-family:var(--ob-font-sans); }
+button,input,select { font:inherit; }
+.numerals { font-variant-numeric:tabular-nums lining-nums; }
+.mono { font-family:var(--ob-font-mono); }
+:focus-visible { outline:2px solid var(--ob-focus); outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:0.01ms!important;transition-duration:0.01ms!important;scroll-behavior:auto!important; } }

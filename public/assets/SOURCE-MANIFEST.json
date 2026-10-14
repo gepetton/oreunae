@@ -1,0 +1,197 @@
+{
+  "retrieved_on": "2026-09-12",
+  "items": [
+    {
+      "file": "assets/fonts/Geist-Variable.woff2",
+      "source": "https://registry.npmjs.org/geist/-/geist-1.7.2.tgz#package/dist/fonts/geist-sans/Geist-Variable.woff2",
+      "package": "geist",
+      "version": "1.7.2",
+      "license": "SIL OFL 1.1",
+      "sha256": "a369fcf5628ea2aa4e1b9e2ec6a5b3624e365bda588e1f0f2f12b564f728fbb8"
+    },
+    {
+      "file": "assets/fonts/GeistMono-Variable.woff2",
+      "source": "https://registry.npmjs.org/geist/-/geist-1.7.2.tgz#package/dist/fonts/geist-mono/GeistMono-Variable.woff2",
+      "package": "geist",
+      "version": "1.7.2",
+      "license": "SIL OFL 1.1",
+      "sha256": "fba8f577f38a2bbcbe818efa6348dd58f36303a10b8737c42fefad275be563ab"
+    },
+    {
+      "file": "licenses/Geist-OFL.txt",
+      "source": "https://registry.npmjs.org/geist/-/geist-1.7.2.tgz#package/LICENSE.txt",
+      "package": "geist",
+      "version": "1.7.2",
+      "license": "SIL OFL 1.1",
+      "sha256": "930853ee1daa68554d9e35c8a9175affb74f699fad9a5da6ee5ebe76379d9137"
+    },
+    {
+      "file": "assets/fonts/Pretendard-Variable.woff2",
+      "source": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2",
+      "package": "pretendard",
+      "version": "1.3.9",
+      "license": "SIL OFL 1.1",
+      "sha256": "9599f12fd42fc0bce1cd50b47a0c022e108d7aa64dd0d1bb0ed44f3282d900b4"
+    },
+    {
+      "file": "licenses/Pretendard-OFL.txt",
+      "source": "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/LICENSE",
+      "package": "pretendard",
+      "version": "1.3.9",
+      "license": "SIL OFL 1.1",
+      "sha256": "d31ddd9f2bed32fd7e302a205cf2380ba0de6529152d239ef99cfb6f261bfc04"
+    },
+    {
+      "file": "assets/icons/search.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/search.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "a1eb8d625abe8ff7d68bff7deb112c7ec1b375ff72012e755e0c8624b3585a7f"
+    },
+    {
+      "file": "assets/icons/star.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/star.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "d34c7b34a2b180a1972a35b17eefc59684bebfd7f297594870419751bed0f5ac"
+    },
+    {
+      "file": "assets/icons/calendar-days.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/calendar-days.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "23a784c2da03d6a40398f935343bf228dcbe7a439ee2ccf8e1212da1d117b8da"
+    },
+    {
+      "file": "assets/icons/globe.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/globe.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "888fee442c20c4df8bdcf388f90b8b678977a089b96727638b7e299d852c0b06"
+    },
+    {
+      "file": "assets/icons/chart-no-axes-column-increasing.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/chart-no-axes-column-increasing.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "473d5611be0fb159550fe700eb8596c38531ac6075ea7cc1b4fd58abcee69e7f"
+    },
+    {
+      "file": "assets/icons/arrow-left.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/arrow-left.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "1298b3a847d0813cb7bec3c5db89e089e9f84db45afe80bb8c7c2b685b4027cc"
+    },
+    {
+      "file": "assets/icons/arrow-up-right.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/arrow-up-right.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "13f095eb3945b8f51c6bb8c9f0004d7d6c8f910e79a97cd2fb6f380b3b39915b"
+    },
+    {
+      "file": "assets/icons/chevron-right.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/chevron-right.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "82d5cabd20998525edb9e38b590755e6cc7ad2d5a1727cd1d40cc98c5bf52976"
+    },
+    {
+      "file": "assets/icons/chevron-down.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/chevron-down.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "5e7171dcd07ba687a1f04b777c13ccde0554fea5434d60bc6fe5a8bfbc607f82"
+    },
+    {
+      "file": "assets/icons/sun.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/sun.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "6ea5baf4ffcf87a29919607913f99e63f05a6930f80c899d01d8d07e23bbea12"
+    },
+    {
+      "file": "assets/icons/moon.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/moon.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "1cf3771bbb1a117c93c0e38482f5d1542c103128a910a28d172551867eeb2dd7"
+    },
+    {
+      "file": "assets/icons/settings.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/settings.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "29620b5fff43c25b2b4809d09de652778bbc59253096875ee868dfa989d1959a"
+    },
+    {
+      "file": "assets/icons/check.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/check.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "7216f71ef95aebc3cc36b7f53b13e6172d986f1cf317ff558645fe2914ded0ec"
+    },
+    {
+      "file": "assets/icons/x.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/x.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "830aeb24c02e702bb53a22f333aa604c5b5151dc81d024c5d13156c5c204563a"
+    },
+    {
+      "file": "assets/icons/info.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/info.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "58cbd695787fbda1ef43583197b3b318159e15f4804e55e98c581f815176197a"
+    },
+    {
+      "file": "assets/icons/loader-circle.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/loader-circle.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "e22ce584b492d4e488b412ba6dcb635ef93fd687ff3bf6791373c08603f0d7a1"
+    },
+    {
+      "file": "assets/icons/menu.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/menu.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "41ff7b90b5f8f5a5e0d8277aab2045a76883d28839d58eaa507ecfa6a7a5c949"
+    },
+    {
+      "file": "assets/icons/external-link.svg",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/icons/external-link.svg",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT; see included license",
+      "sha256": "04a0d3ad7c999fabb0034d46a4fba5ae4bc1783728e68d7309be63fc75a6cf4c"
+    },
+    {
+      "file": "licenses/Lucide-LICENSE.txt",
+      "source": "https://registry.npmjs.org/lucide-static/-/lucide-static-1.45.0.tgz#package/LICENSE",
+      "package": "lucide-static",
+      "version": "1.45.0",
+      "license": "ISC / MIT",
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "demo": true,
+  "defaultState": "demo",
+  "states": [
+    {
+      "id": "loading",
+      "labelKey": "loading"
+    },
+    {
+      "id": "error",
+      "labelKey": "error"
+    },
+    {
+      "id": "unavailable",
+      "labelKey": "unavailable"
+    },
+    {
+      "id": "stale",
+      "labelKey": "stale"
+    }
+  ],
+  "note": "Explicit UI demonstrations, not live monitoring."
+}

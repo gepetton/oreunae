@@ -1,0 +1,57 @@
+import { expect, test } from '@playwright/test'
+
+test('indicator sections expand independently and survive navigation and reload', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('oreunae:locale', 'ko'))
+  await page.setViewportSize({ width: 390, height: 844 })
+  const errors: string[] = []
+  page.on('pageerror', error => errors.push(error.message))
+  await page.goto('/markets')
+  const treasury = page.locator('[data-home-section="treasury"]')
+  const indices = page.locator('[data-home-section="indices"]')
+  const treasuryTop = treasury.locator('.home-section-heading button')
+  const indicesTop = indices.locator('.home-section-heading button')
+  await expect(page.locator('.indicator-section-card')).toHaveCount(6)
+  await expect(page.locator('.macro-tile:visible')).toHaveCount(20)
+  await expect(page.locator('[data-home-section="oil"] button')).toHaveCount(0)
+  await expect(treasuryTop).toHaveText('4개 더 보기')
+  await treasuryTop.focus()
+  await page.keyboard.press('Enter')
+  await expect(treasuryTop).toHaveAttribute('aria-expanded', 'true')
+  await expect(treasury.locator('.macro-tile:visible')).toHaveCount(8)
+  await indicesTop.click()
+  await expect(indices.locator('.macro-tile:visible')).toHaveCount(5)
+  await expect(treasuryTop).toHaveAttribute('aria-expanded', 'true')
+  await page.reload()
+  await expect(treasuryTop).toHaveAttribute('aria-expanded', 'true')
+  await expect(indicesTop).toHaveAttribute('aria-expanded', 'true')
+  await treasury.locator('[href="/markets/us-treasury-3m"]').click()
+  await expect(page.locator('.asset-detail')).toHaveAttribute('data-market', 'us-treasury-3m')
+  await page.goBack()
+  await expect(treasuryTop).toHaveAttribute('aria-expanded', 'true')
+  await treasury.locator('.indicator-toggle-bottom').click()
+  await expect(treasuryTop).toHaveAttribute('aria-expanded', 'false')
+  await expect(treasuryTop).toBeFocused()
+  await expect(treasury.locator('.macro-tile:visible')).toHaveCount(4)
+  await expect(treasury.locator('.indicator-expansion')).toHaveAttribute('inert', '')
+  await expect(indicesTop).toHaveAttribute('aria-expanded', 'true')
+  await page.locator('#home-tab-domestic').click()
+  await page.locator('#home-tab-indicators').click()
+  await expect(indicesTop).toHaveAttribute('aria-expanded', 'true')
+
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 })
+    await page.evaluate(() => document.fonts.ready)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
+    const issues = await page.locator('.macro-tile:visible').evaluateAll(rows => rows.flatMap(row => {
+      const name = row.querySelector('.macro-tile-name')!.getBoundingClientRect()
+      const quote = row.querySelector('.macro-tile-quote')!
+      const bounds = quote.getBoundingClientRect()
+      const chart = row.querySelector('.home-mini-chart')!.getBoundingClientRect()
+      return quote.scrollWidth > quote.clientWidth + 1 || name.right > bounds.left + 1 || bounds.right > chart.left + 1 ? [row.textContent] : []
+    }))
+    expect(issues).toEqual([])
+  }
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  expect(await treasury.locator('.indicator-expansion').evaluate(el => parseFloat(getComputedStyle(el).transitionDuration))).toBeLessThanOrEqual(.001)
+  expect(errors).toEqual([])
+})

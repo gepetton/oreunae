@@ -1,0 +1,68 @@
+{
+  "package": "simple-icons",
+  "version": "13.21.0",
+  "source": "https://registry.npmjs.org/simple-icons/-/simple-icons-13.21.0.tgz",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "file": "openai.svg",
+      "sha256": "2b4a04ddc2395b20d168694d3850ce2050a702c4a0cdeb4d8b31b9a970481a8c"
+    },
+    {
+      "file": "anthropic.svg",
+      "sha256": "1cc599f6ebce2016dc388cf84e54a52c6b13487655c7e243554d654c7bce1882"
+    },
+    {
+      "file": "samsung.svg",
+      "sha256": "4a241ca8ebab6e71883b172acb9fb454efa69f308e4f2c31ec80668aeb6627d9"
+    },
+    {
+      "file": "nvidia.svg",
+      "sha256": "b0e4cfc12712c840d4d630c9a717200fbd09aeeadbd3faeac13bda2e2ed050b0"
+    },
+    {
+      "file": "bitcoin.svg",
+      "sha256": "9c1547b0246bd3e83b4ade35132279ab12d0388ae3f9f436dc6a3a9e29e68e9b"
+    },
+    {
+      "file": "amazon.svg",
+      "sha256": "f7ef379d2ea0da19e63e74e394ec6a1423e335ef785a456729da66a840858dbf"
+    },
+    {
+      "file": "apple.svg",
+      "sha256": "2a1509dccd25e6d2bc7a11a8e52941077e1a48555e192ce638699b9f083c2a7c"
+    },
+    {
+      "file": "databricks.svg",
+      "sha256": "454aa3efdb318c655e3da2ea844e3577a9c47a20e24d20fff6489362176e5fe4"
+    },
+    {
+      "file": "ethereum.svg",
+      "sha256": "0ba6a9ca2c62e9a0c7f61b3053a9065cd8b48f1f35cd782edd1f7e49b1d729c2"
+    },
+    {
+      "file": "hyundai.svg",
+      "sha256": "dcd2d6c20e7c4bc431f7c3a1108c4493b007f978b8ee6f48b007406cc8435937"
+    },
+    {
+      "file": "naver.svg",
+      "sha256": "6c8125ff3908b12e0d0e0dd56bfeaa90013547a0124f7e34e2b149ba474150a8"
+    },
+    {
+      "file": "ripple.svg",
+      "sha256": "c238870c1a4bb73ecac2c8694b5607c2a995529b9233a31719085376f07ead14"
+    },
+    {
+      "file": "solana.svg",
+      "sha256": "35472f0ee6e700a48c5c19c975dfe89242d987c415ec969ed5b0b6a3a487c301"
+    },
+    {
+      "file": "spacex.svg",
+      "sha256": "b62123e05102ff4faa0a900d385c5312426f397a72ed9b6e4018821d9c18ac9a"
+    },
+    {
+      "file": "tesla.svg",
+      "sha256": "4b94d9eaf23849d6feec7a9c819e3699a35cbb76045ba7d482d17cbcc97414a5"
+    }
+  ]
+}

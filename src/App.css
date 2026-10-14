@@ -1,0 +1,2011 @@
+@import 'tailwindcss' source('.');
+@import '../public/tokens/tokens.css' layer(base);
+@import './components/icons/oreunae-icons.css';
+
+/* Keep the handoff tokens as the source for both themes. */
+@theme inline {
+  --color-background: var(--ob-background);
+  --color-surface: var(--ob-surface);
+  --color-surface-subtle: var(--ob-surface-subtle);
+  --color-foreground: var(--ob-text);
+  --color-muted: var(--ob-text-muted);
+  --color-line: var(--ob-border);
+  --color-accent: var(--ob-accent);
+  --color-accent-foreground: var(--ob-accent-text);
+  --color-positive: var(--ob-positive);
+  --color-negative: var(--ob-negative);
+  --color-market-up: var(--ob-market-up);
+  --color-market-down: var(--ob-market-down);
+  --color-focus: var(--ob-focus);
+  --color-selection: var(--ob-selection);
+  --font-sans: var(--ob-font-sans);
+  --font-mono: var(--ob-font-mono);
+  --radius-card: var(--ob-radius-card);
+  --radius-button: var(--ob-radius-button);
+  --color-glass: var(--ob-glass-fill);
+  --color-glass-edge: var(--ob-glass-edge);
+  --background-image-sheen: var(--ob-glass-sheen);
+  --background-image-accent-wash: var(--ob-accent-wash);
+  --shadow-glass: var(--ob-glass-shadow);
+}
+@theme {
+  --breakpoint-xs: 22.5rem;
+  --breakpoint-wide: 87.5rem;
+}
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    --ob-header: 56px;
+    --ob-home-nav-height: 56px;
+    --ob-market-up: #c5303f;
+    --ob-market-down: #2563eb;
+    --ob-soft-glass-fill: rgb(255 255 255 / .70);
+    --ob-soft-glass-edge: rgb(255 255 255 / .72);
+    --ob-soft-glass-sheen: linear-gradient(145deg, rgb(255 255 255 / .12), transparent 65%);
+    --ob-soft-glass-shadow: inset 0 1px 0 rgb(255 255 255 / .55), 0 4px 16px rgb(31 48 32 / .018);
+    --ob-control-glass-fill: rgb(255 255 255 / .46);
+    --ob-control-glass-edge: rgb(255 255 255 / .72);
+    --ob-control-glass-shadow: inset 0 1px 0 rgb(255 255 255 / .65), 0 3px 12px rgb(31 48 32 / .025);
+    --ob-marker-fill: rgb(35 55 40 / .035);
+    --ob-home-ambient: radial-gradient(ellipse at 10% 22%, rgb(190 235 100 / .10), transparent 48%), radial-gradient(ellipse at 90% 55%, rgb(208 235 165 / .09), transparent 45%), radial-gradient(ellipse at 48% 88%, rgb(239 213 170 / .06), transparent 40%);
+  }
+  body {
+    @apply min-w-80 text-[14px] leading-[1.5];
+  }
+  html {
+    scroll-padding-top: 92px;
+  }
+  html[lang='ko'] body {
+    @apply break-keep;
+    font-family: 'Pretendard', 'Geist Sans', sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    @apply m-0;
+  }
+  h1,
+  h2,
+  h3 {
+    @apply leading-[1.25];
+  }
+  h2 {
+    @apply text-[20px] font-semibold tracking-[-.5px];
+  }
+  h3 {
+    @apply text-[16px] font-semibold;
+  }
+  a {
+    @apply text-inherit no-underline;
+  }
+  button,
+  a,
+  input,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  select {
+    @apply cursor-pointer;
+  }
+  button {
+    @apply text-inherit;
+  }
+  button:disabled {
+    @apply cursor-not-allowed;
+  }
+  svg {
+    @apply block;
+  }
+  dialog {
+    margin: auto;
+  }
+  :root {
+    --ob-glass-fill: rgb(255 255 255 / 0.64);
+    --ob-glass-edge: rgb(173 185 160 / 0.25);
+    --ob-glass-sheen: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 0.72),
+      rgb(255 255 255 / 0.08) 68%
+    );
+    --ob-glass-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.85), 0 5px 24px rgb(37 53 27 / 0.025);
+    --ob-accent-wash: linear-gradient(
+      120deg,
+      rgb(241 249 210 / 0.7),
+      rgb(206 232 121 / 0.55)
+    );
+    --ob-ambient:
+      radial-gradient(
+        ellipse at 20% 12%,
+        rgb(214 224 192 / 0.14),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 90% 80%,
+        rgb(255 255 255 / 0.72),
+        transparent 65%
+      );
+  }
+  [data-theme='dark'] {
+    --ob-soft-glass-fill: rgb(24 34 28 / .68);
+    --ob-soft-glass-edge: rgb(255 255 255 / .09);
+    --ob-soft-glass-sheen: linear-gradient(145deg, rgb(231 244 216 / .025), transparent 65%);
+    --ob-soft-glass-shadow: inset 0 1px 0 rgb(231 244 216 / .07), 0 4px 16px rgb(0 0 0 / .045);
+    --ob-control-glass-fill: rgb(28 42 32 / .54);
+    --ob-control-glass-edge: rgb(225 240 212 / .14);
+    --ob-control-glass-shadow: inset 0 1px 0 rgb(231 244 216 / .09), 0 3px 12px rgb(0 0 0 / .07);
+    --ob-marker-fill: rgb(216 238 201 / .045);
+    --ob-home-ambient: radial-gradient(ellipse at 10% 22%, rgb(125 168 67 / .085), transparent 48%), radial-gradient(ellipse at 90% 55%, rgb(124 166 124 / .055), transparent 45%), radial-gradient(ellipse at 48% 88%, rgb(178 144 92 / .035), transparent 40%);
+    --ob-market-up: #ff8994;
+    --ob-market-down: #82b1ff;
+    --ob-glass-fill: rgb(26 32 26 / 0.64);
+    --ob-glass-edge: rgb(184 206 156 / 0.14);
+    --ob-glass-sheen: linear-gradient(
+      135deg,
+      rgb(224 240 200 / 0.045),
+      rgb(224 240 200 / 0) 70%
+    );
+    --ob-glass-shadow:
+      inset 0 1px 0 rgb(225 242 199 / 0.06), 0 6px 28px rgb(0 0 0 / 0.07);
+    --ob-accent-wash: linear-gradient(
+      120deg,
+      rgb(235 249 178 / 0.35),
+      rgb(214 238 132 / 0.06)
+    );
+    --ob-ambient:
+      radial-gradient(
+        ellipse at 18% 18%,
+        rgb(81 103 57 / 0.066),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse at 95% 85%,
+        rgb(110 126 74 / 0.035),
+        transparent 65%
+      );
+  }
+  body {
+    background-image: var(--ob-ambient);
+    background-attachment: fixed;
+  }
+  body:has(.home-tabs-page) { background-image: var(--ob-home-ambient); }
+}
+
+/* Shared controls and composed financial panels; page layout lives in JSX. */
+@layer components {
+  .ob-button {
+    @apply min-h-11 py-2.5 px-4 inline-flex items-center justify-center gap-2 border border-glass-edge rounded-button text-foreground bg-glass bg-sheen font-medium cursor-pointer transition-[background,box-shadow,transform] duration-150;
+  }
+  .ob-button:hover {
+    @apply bg-surface-subtle/80;
+  }
+  .ob-button.ghost {
+    @apply border-transparent bg-none bg-transparent shadow-none;
+  }
+  .ob-button.primary {
+    @apply bg-accent bg-accent-wash border-accent text-accent-foreground shadow-[inset_0_1px_0_#ffffff50];
+  }
+  .ob-card {
+    @apply min-w-0 p-6 border border-glass-edge rounded-card bg-glass bg-sheen shadow-glass backdrop-blur-[16px] max-xs:p-4;
+  }
+  .ob-badge {
+    @apply py-1 px-2.5 rounded-lg text-[12px] border border-glass-edge bg-glass/70 text-muted;
+  }
+  .sample-badge {
+    @apply text-[12px];
+  }
+  .ob-tabs button[aria-pressed='true'] {
+    @apply bg-accent bg-accent-wash border-accent text-accent-foreground font-semibold;
+  }
+  .ob-button:active,
+  .ob-button.is-pressed {
+    transform: translateY(1px);
+  }
+  .ob-button.primary:hover {
+    filter: brightness(0.97);
+  }
+  .ob-button:disabled {
+    @apply opacity-[.45] cursor-not-allowed;
+  }
+  .ob-button[aria-busy='true'] {
+    @apply opacity-[.8];
+  }
+  .ob-icon {
+    @apply w-5 h-5 fill-[none] stroke-current shrink-0;
+  }
+  .ob-input {
+    @apply min-h-11 min-w-0 w-full border border-line rounded-button py-2.5 px-3 bg-surface text-foreground;
+  }
+  .ob-input::placeholder {
+    @apply text-muted;
+  }
+  .ob-tabs {
+    @apply flex flex-wrap gap-2;
+  }
+  .ob-tabs button {
+    @apply min-h-11 py-2 px-3.5 border border-line rounded-lg bg-surface text-foreground cursor-pointer;
+  }
+  .ob-row {
+    @apply flex items-center gap-3 justify-between py-4 px-0 border-b border-b-line;
+  }
+  .ob-positive {
+    @apply text-positive;
+  }
+  .ob-negative {
+    @apply text-negative;
+  }
+  .ob-muted {
+    @apply text-muted;
+  }
+  .ob-price {
+    @apply text-[40px] font-semibold tracking-[-1.2px] leading-[1.2] tabular-nums lining-nums;
+  }
+  .ob-price small {
+    @apply text-[15px] font-normal tracking-[0] text-muted;
+  }
+  @media (max-width: 359px) {
+    .ob-price {
+      @apply text-[36px];
+    }
+  }
+  .positive {
+    @apply text-positive;
+  }
+  .negative {
+    @apply text-negative;
+  }
+  .sr-only {
+    @apply absolute w-px h-px p-0 m-[-1px] overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+  .skip-link {
+    @apply fixed z-100 left-3 top-[-60px] bg-accent p-3 rounded-lg;
+  }
+  .skip-link:focus {
+    @apply top-3;
+  }
+  .brand {
+    @apply flex items-center shrink-0 min-h-11;
+  }
+  .brand img {
+    @apply w-32 h-auto;
+  }
+  .header-controls {
+    @apply ml-auto flex items-center gap-4;
+  }
+  .header-action {
+    @apply min-w-11 min-h-11 px-2.5;
+  }
+  .header-action.active {
+    @apply text-positive bg-selection;
+  }
+  .page-utilities > a {
+    @apply flex items-center gap-1.5 min-h-11 text-muted text-[12px];
+  }
+  .page-utilities .ob-icon {
+    @apply h-4 w-4;
+  }
+  .market-up {
+    @apply text-market-up;
+  }
+  .market-down {
+    @apply text-market-down;
+  }
+  .market-flat {
+    @apply text-muted;
+  }
+  .home-route {
+    @apply max-w-280 mx-auto;
+    --home-spark-width: 60px;
+    --home-spark-height: 32px;
+    --ob-glass-fill: var(--ob-soft-glass-fill);
+    --ob-glass-edge: var(--ob-soft-glass-edge);
+    --ob-glass-sheen: var(--ob-soft-glass-sheen);
+    --ob-glass-shadow: var(--ob-soft-glass-shadow);
+  }
+  [data-theme='light'] .home-route {
+    --ob-text: #111a20;
+    --ob-text-muted: #65716e;
+    --ob-market-up: #cf2440;
+    --ob-market-down: #215eeb;
+    color: var(--ob-text);
+  }
+  .home-market-status {
+    @apply flex items-center justify-between gap-2 min-h-9 mb-2 text-[12px] text-muted max-xs:text-[10px];
+  }
+  .home-status-dot {
+    @apply size-2 rounded-full shrink-0 bg-muted;
+  }
+  .home-reference-badge {
+    @apply inline-flex items-center justify-center gap-1.5 min-h-11 -my-1 shrink-0 text-muted hover:text-foreground text-[11px] pl-2;
+  }
+  .home-reference-badge .ob-icon {
+    @apply size-3.5 text-muted;
+  }
+  .home-sections {
+    @apply flex flex-col gap-[18px] md:gap-[25px];
+  }
+  .home-section-heading {
+    @apply flex items-center justify-between gap-2 mb-1;
+  }
+  .home-section-heading h2 {
+    @apply min-w-0 text-[19px] md:text-[21px] font-bold tracking-[-.5px] max-xs:text-[17px];
+  }
+  .market-card,
+  .overview-card {
+    @apply px-3 py-2.5 md:p-3.5 rounded-2xl transition-[border-color,box-shadow] duration-150 hover:border-focus/40 hover:shadow-[inset_0_1px_0_#ffffff35,0_8px_28px_#25351b08];
+  }
+  .home-asset-grid {
+    @apply grid grid-cols-1 xl:grid-cols-2 gap-2.5 md:gap-3;
+  }
+  .home-stock-group .home-asset-grid {
+    @apply grid-cols-1;
+  }
+  .home-asset-card {
+    @apply relative min-w-0;
+    container-type: inline-size;
+  }
+  .home-asset-link {
+    @apply grid items-center min-w-0 min-h-10.5 gap-2 pr-[52px];
+    grid-template-columns: 34px minmax(0, 1fr) var(--home-spark-width) max-content;
+  }
+  .home-card-chevron { @apply absolute right-1.5 top-1/2 -translate-y-1/2 size-3.5 text-muted pointer-events-none; }
+  /* Extend the native link across the card padding; the star stays above it. */
+  .market-card > .home-asset-link::after { content: ''; @apply absolute inset-0 rounded-2xl; }
+  .home-asset-identity {
+    @apply block min-w-0;
+  }
+  .home-asset-identity .market-name,
+  .home-asset-name {
+    @apply block truncate text-[14px] leading-5 font-semibold tracking-[-.35px];
+  }
+  .home-card-ticker {
+    @apply block text-[10px] leading-4 text-muted whitespace-nowrap truncate tracking-[-.2px];
+  }
+  .home-asset-quote {
+    @apply block text-right col-start-4 min-w-0;
+  }
+  .home-card-value {
+    @apply block font-bold leading-[25px] tracking-[-.6px] whitespace-nowrap text-[21px];
+  }
+  .home-card-value.is-long {
+    font-size: clamp(18px, 5.9cqi, 19px);
+  }
+  .home-card-change {
+    @apply block whitespace-nowrap font-medium leading-[18px] text-[12px];
+  }
+  .home-mini-chart {
+    @apply block min-w-0 overflow-hidden justify-self-end;
+    width: var(--home-spark-width);
+    height: var(--home-spark-height);
+  }
+  .home-mini-chart .sparkline {
+    @apply w-full h-full max-w-none;
+  }
+  .home-mini-chart .sparkline > path {
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .home-mini-chart stop:first-child {
+    stop-opacity: .07;
+  }
+  @media (min-width: 768px) {
+    .home-route { --home-spark-width: 64px; }
+  }
+  @media (max-width: 374px) {
+    .home-route { --home-spark-width: 48px; }
+  }
+  @media (max-width: 359px) {
+    .home-route { --home-spark-width: 40px; }
+  }
+  .home-asset-card > .save-button {
+    @apply absolute z-10 right-5 top-1/2 -translate-y-1/2 size-11 min-h-11 min-w-11 p-3 border-0 bg-transparent bg-none shadow-none text-muted;
+  }
+  .home-asset-card > .save-button.is-saved {
+    @apply text-positive;
+  }
+  .home-asset-card > .save-button .ob-icon {
+    @apply size-4.5;
+  }
+  .home-asset-card:has(.save-button:hover) {
+    @apply border-glass-edge;
+  }
+  .home-preipo-card .home-asset-link {
+    @apply pr-14;
+  }
+  .home-preipo-card:has(.home-period-badge.is-candidate) .home-asset-link { @apply pr-20; }
+  .home-period-badge {
+    @apply absolute right-7 top-1/2 -translate-y-1/2 rounded-lg text-[9px] text-positive bg-selection/65 px-1.5 py-1;
+  }
+  .home-asset-icon {
+    @apply size-8.5 flex items-center justify-center rounded-full shrink-0 bg-[#eef0f1] text-[#111a20];
+  }
+  .home-asset-icon img,
+  .home-asset-icon > svg {
+    @apply size-6;
+  }
+  .home-asset-monogram { @apply text-[16px]; }
+  .home-asset-icon.asset-samsung {
+    @apply bg-[#034bd9];
+  }
+  .home-asset-icon.asset-nvidia {
+    @apply bg-[#76b900];
+  }
+  .asset-samsung img,
+  .asset-nvidia img {
+    filter: none;
+  }
+  .home-asset-icon.asset-bitcoin {
+    @apply bg-white;
+  }
+  .asset-bitcoin img {
+    @apply size-full;
+    filter: invert(59%) sepia(90%) saturate(2000%) hue-rotate(359deg) brightness(101%) contrast(102%);
+  }
+  .home-asset-icon.asset-gold {
+    background-color: var(--ob-marker-fill);
+  }
+  .home-asset-icon.asset-anthropic {
+    @apply bg-[#f1e1d4];
+  }
+  .asset-anthropic img {
+    @apply size-5.5;
+  }
+  .home-indicator-card {
+    @apply px-2.5 py-[7px] md:px-3.5 md:py-[11px] min-h-[82px];
+  }
+  .home-indicator-content {
+    @apply block min-w-0;
+  }
+  .home-indicator-name {
+    @apply flex items-center gap-1.5 min-w-0 text-[12px] leading-5 font-medium mb-0.5;
+  }
+  .home-indicator-name > span:last-child {
+    @apply truncate;
+  }
+  .home-indicator-name .home-asset-icon {
+    @apply size-5 rounded-lg;
+  }
+  .home-indicator-name .home-asset-icon > svg {
+    @apply size-4;
+  }
+  .home-indicator-bottom {
+    @apply grid grid-cols-[auto_minmax(0,1fr)] items-end gap-2;
+  }
+  .home-indicator-bottom .home-card-value {
+    @apply text-[24px] leading-6.5;
+  }
+  .home-price-stack {
+    @apply block;
+  }
+  .home-empty-value {
+    @apply block text-muted text-[18px];
+  }
+  .home-empty-value > span {
+    @apply block text-[10px] leading-4;
+  }
+  @container (max-width: 285px) {
+    .home-asset-link {
+      grid-template-columns: 30px minmax(0, 1fr) max-content;
+      @apply gap-1.5;
+    }
+    .home-asset-link > .home-mini-chart {
+      @apply hidden;
+    }
+    .home-asset-quote {
+      @apply col-start-3;
+    }
+    .home-asset-link > .home-asset-icon {
+      @apply size-7.5;
+    }
+  }
+  .locale-select select {
+    @apply text-foreground bg-transparent border-0 appearance-none pt-3 pr-5.5 pb-3 pl-0 text-[13px];
+  }
+  .locale-select select option {
+    @apply bg-surface;
+  }
+  .locale-select > .ob-icon:last-child {
+    @apply w-[13px] absolute pointer-events-none right-0;
+  }
+  .icon-button {
+    @apply min-w-10 min-h-10 w-10 h-10 p-[9px];
+  }
+  .theme-toggle .ob-icon {
+    @apply w-[23px] h-[23px];
+  }
+  .mobile-header-save,
+  .mobile-sample {
+    @apply hidden;
+  }
+  .quote-identity {
+    @apply flex items-center gap-3 min-w-0;
+  }
+  .quote-identity .market-avatar {
+    @apply w-10 h-10;
+  }
+  .save-button {
+    @apply py-1.5 px-2.5 min-h-8.5 rounded-lg text-[12px];
+  }
+  .save-button .ob-icon {
+    @apply w-4.5 h-4.5;
+  }
+  .save-button.is-saved {
+    @apply text-positive bg-selection border-positive;
+  }
+  .ob-price {
+    @apply text-[44px] tracking-[-1.6px] font-semibold whitespace-nowrap;
+  }
+  .ob-price small {
+    @apply text-[16px] ml-[3px];
+  }
+  .quote-change span {
+    @apply font-medium;
+  }
+  .reference-label {
+    @apply text-muted text-[12px] mt-0.5;
+  }
+  .quote-stats {
+    @apply flex gap-5 mt-3.5 mx-0 mb-0;
+  }
+  .quote-stats > div + div {
+    @apply border-l border-l-line pl-5;
+  }
+  .quote-stats dt {
+    @apply text-muted text-[12px] whitespace-nowrap;
+  }
+  .period-selector button[aria-pressed='true'] {
+    @apply bg-accent text-accent-foreground border-accent font-semibold;
+  }
+  .price-chart {
+    @apply my-0 mx-[-4px];
+  }
+  .chart-grid {
+    @apply stroke-line;
+    stroke-dasharray: 3 3;
+    opacity: .55;
+  }
+  .chart-line {
+    @apply stroke-current;
+  }
+  .chart-crosshair {
+    @apply stroke-muted;
+    stroke-dasharray: 3 3;
+  }
+  .chart-dot {
+    @apply fill-surface stroke-current stroke-[2];
+  }
+  .chart-axis-label {
+    @apply fill-muted font-sans tabular-nums;
+    font-size: 9px;
+    opacity: .7;
+  }
+  .chart-current-line {
+    stroke: currentColor;
+    stroke-dasharray: 4 4;
+    opacity: .4;
+  }
+  .chart-current-bg { fill: currentColor; }
+  .chart-current-value { fill: white; font-size: 11px; font-weight: 650; }
+  .chart-point-tooltip rect { fill: #1c2822; opacity: .95; }
+  .chart-point-tooltip text { fill: #fff; font-size: 10px; font-family: var(--ob-font-mono); }
+  .section-heading {
+    @apply flex justify-between items-center gap-2 mb-4;
+  }
+  .section-heading .ob-icon {
+    @apply w-4 h-4;
+  }
+  .market-table-heading {
+    @apply grid grid-cols-[minmax(140px,1.5fr)_.75fr_1fr_.75fr_1fr_36px] gap-3 pt-0 px-2 pb-2 text-[11px] text-muted;
+  }
+  .market-table-heading > span:nth-child(3),
+  .market-table-heading > span:nth-child(4) {
+    @apply text-right;
+  }
+  .market-table-heading > span:nth-child(5),
+  .market-table-heading > span:nth-child(6) {
+    @apply text-center;
+  }
+  .market-table-heading .ob-icon {
+    @apply h-3.5 w-3.5 m-auto;
+  }
+  .market-row:last-child {
+    @apply border-b-0;
+  }
+  .market-row.is-selected {
+    @apply bg-selection rounded-lg border-b-transparent;
+  }
+  .market-row.is-selected::before {
+    @apply h-8.5 w-[3px] bg-positive absolute left-0 rounded-[2px];
+    content: '';
+  }
+  .row-identity > div {
+    @apply min-w-0;
+  }
+  .market-kind {
+    @apply text-[11px];
+  }
+  .sparkline {
+    @apply w-full max-w-28 h-10.5;
+  }
+  .market-row > .save-button {
+    @apply w-9 h-9 min-h-9 min-w-9 border-transparent bg-none bg-transparent p-[9px];
+  }
+  .market-row > .save-button.is-saved {
+    @apply text-positive;
+  }
+  .mobile-market-list,
+  .mobile-detail-content {
+    @apply hidden;
+  }
+  .right-rail {
+    @apply grid gap-4;
+  }
+  .icon-link {
+    @apply min-w-7.5 justify-end;
+  }
+  .country-tag {
+    @apply hidden;
+  }
+  .macro-value span {
+    @apply text-[.85em];
+  }
+  .macro-caption {
+    @apply text-[10px] text-muted mt-1 block;
+  }
+  .macro-value-line .sparkline {
+    @apply max-w-20 text-muted;
+  }
+  .provenance {
+    @apply p-4.5;
+  }
+  .provenance dl {
+    @apply m-0;
+  }
+  .provenance dt {
+    @apply text-muted;
+  }
+  .provenance dd {
+    @apply m-0 wrap-anywhere;
+  }
+  .provenance dd a {
+    @apply inline-flex items-center gap-1;
+  }
+  .provenance dd .ob-icon {
+    @apply w-[13px] h-[13px];
+  }
+  .provenance .mono {
+    @apply text-[10px] tracking-[-.3px];
+  }
+  .observation-date {
+    @apply block text-[10px] text-muted mt-[3px];
+  }
+  .about-price {
+    @apply text-[11px] min-h-9 py-1.5 px-3;
+  }
+  .about-price .ob-icon {
+    @apply w-3.5 h-3.5;
+  }
+  .page-footnote {
+    @apply col-span-full text-muted text-[11px] mt-4;
+  }
+  .standard-page {
+    @apply max-w-290 my-0 mx-auto;
+  }
+  .saved-list {
+    @apply mt-0;
+  }
+  .macro-full {
+    @apply p-6;
+  }
+  .macro-full .macro-grid {
+    @apply grid-cols-[1fr_1fr] gap-5;
+  }
+  .macro-full .country-tag {
+    @apply flex bg-surface-subtle text-muted w-9 h-9 items-center justify-center rounded-button;
+    font: 11px var(--ob-font-mono);
+  }
+  .macro-full .macro-card h3 {
+    @apply text-[19px];
+  }
+  .macro-full .macro-value {
+    @apply text-[44px];
+  }
+  .macro-full .macro-caption {
+    @apply text-[12px];
+  }
+  .macro-full .macro-value-line {
+    @apply mt-6;
+  }
+  .macro-full .macro-value-line .sparkline {
+    @apply max-w-37.5 h-18.5;
+  }
+  .macro-metadata > div {
+    @apply flex justify-between gap-4 mt-2.5 text-[12px];
+  }
+  .macro-metadata dt {
+    @apply text-muted;
+  }
+  .macro-metadata dd {
+    @apply m-0 text-right;
+  }
+  .info-paragraph .ob-icon {
+    @apply w-4 h-4;
+  }
+  .empty-state {
+    @apply min-h-77.5 text-center flex flex-col items-center justify-center gap-4 py-10 px-5;
+  }
+  .empty-state h2 {
+    @apply text-[21px];
+  }
+  .empty-state p {
+    @apply text-muted text-[13px] max-w-92.5 leading-[1.8];
+  }
+  .empty-icon .ob-icon {
+    @apply h-7 w-7;
+  }
+  .calendar-empty .empty-state {
+    @apply min-h-110;
+  }
+  .settings-page {
+    @apply max-w-210 m-0;
+  }
+  .settings-page > .ob-card {
+    @apply mb-5;
+  }
+  .settings-page h2 {
+    @apply mb-5;
+  }
+  .theme-option {
+    @apply border border-line bg-surface text-foreground text-left p-2.5 rounded-xl;
+  }
+  .theme-option.selected {
+    @apply border-2 border-positive p-[9px];
+  }
+  .theme-thumbnail {
+    @apply h-27.5 bg-[#F6F7F2] rounded-[7px] flex p-3 gap-2.5 border border-[#DFE3D8];
+  }
+  .theme-thumbnail > i {
+    @apply w-[22%] bg-[#fff] rounded;
+  }
+  .theme-thumbnail > span {
+    @apply flex-1 flex flex-col gap-2;
+  }
+  .theme-thumbnail > span > i {
+    @apply h-[20%] rounded bg-[#fff];
+  }
+  .theme-thumbnail > span > i:first-child {
+    @apply w-[45%] bg-[#CEE879];
+  }
+  .theme-thumbnail > span > i:nth-child(2) {
+    @apply flex-1;
+  }
+  .theme-thumbnail.dark {
+    @apply bg-[#111412] border-[#30392E];
+  }
+  .theme-thumbnail.dark > i,
+  .theme-thumbnail.dark > span > i {
+    @apply bg-[#20271F];
+  }
+  .theme-thumbnail.dark > span > i:first-child {
+    @apply bg-[#D6EE84];
+  }
+  .theme-option-label {
+    @apply flex items-center gap-2 mt-3 mx-1 mb-1;
+  }
+  .theme-option-label .ob-icon:last-child:not(:first-child) {
+    @apply ml-auto text-positive;
+  }
+  .theme-option > small {
+    @apply text-muted block mt-0 mx-1 mb-1 text-[11px];
+  }
+  .setting-row label {
+    @apply flex items-center gap-2;
+  }
+  .setting-row .ob-input {
+    @apply w-auto max-w-[60%] text-[13px];
+  }
+  .muted-caption,
+  .settings-description {
+    @apply text-muted text-[12px] leading-[1.8];
+  }
+  .settings-description {
+    @apply mb-4;
+  }
+  .about-dialog::backdrop {
+    @apply bg-[#11141288];
+    backdrop-filter: blur(4px);
+  }
+  .about-dialog > h2 {
+    @apply text-[26px] mb-4;
+  }
+  .about-dialog > h3 {
+    @apply mb-2.5;
+  }
+  .about-dialog p {
+    @apply text-[13px] leading-[1.8] text-muted;
+  }
+  .dialog-note .ob-icon {
+    @apply mt-[3px];
+  }
+  .about-dialog > .ob-button {
+    @apply w-full;
+  }
+  .state-notice {
+    @apply flex items-center gap-2 bg-surface-subtle p-2.5 rounded-lg text-[12px] mt-4 text-muted;
+  }
+  .quote-state .empty-state {
+    @apply min-h-[345px];
+  }
+  .loading-bars i {
+    @apply w-1.5 bg-accent h-[70%] rounded-[3px];
+    animation: breathe 1s alternate infinite;
+  }
+  .loading-bars i:nth-child(2n) {
+    @apply h-[40%];
+    animation-delay: 250ms;
+  }
+  @keyframes breathe {
+    to {
+      opacity: 0.35;
+      transform: scaleY(0.6);
+    }
+  }
+  @media (min-width: 1280px) and (max-width: 1399px) {
+    .market-table-heading {
+      @apply grid-cols-[minmax(125px,1.4fr)_1fr_.8fr_1fr_36px] gap-2;
+    }
+    .market-kind,
+    .market-table-heading > span:nth-child(2) {
+      @apply hidden;
+    }
+    .quote-stats {
+      @apply gap-3;
+    }
+    .quote-stats > div + div {
+      @apply pl-3;
+    }
+  }
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .right-rail {
+      @apply grid-cols-[1fr_1fr] mt-5;
+    }
+    .header-controls {
+      @apply gap-2.5;
+    }
+  }
+  @media (max-width: 1023px) {
+    :root {
+      --ob-header: 48px;
+    }
+    .brand {
+      @apply w-auto;
+    }
+    .brand img {
+      @apply w-28;
+    }
+    .header-controls {
+      @apply gap-1.5;
+    }
+    .icon-button {
+      @apply min-h-11 min-w-11 w-11 h-11;
+    }
+    .right-rail {
+      @apply grid-cols-[1fr_1fr] mt-5;
+    }
+    .market-row > .save-button {
+      @apply w-11 h-11 min-w-11 min-h-11;
+    }
+    .save-button,
+    .about-price {
+      @apply min-h-11;
+    }
+    .standard-page {
+      @apply max-w-190;
+    }
+  }
+  @media (max-width: 767px) {
+    .header-controls {
+      @apply gap-0.5;
+    }
+    .theme-toggle {
+      @apply hidden;
+    }
+    .locale-select .ob-icon:first-child {
+      @apply w-[19px];
+    }
+    .locale-select select {
+      @apply text-[12px];
+    }
+    [data-theme='dark'] .quote-hero {
+      @apply bg-surface border-line;
+    }
+    .quote-identity {
+      @apply gap-0;
+    }
+    .quote-identity .market-avatar {
+      @apply hidden;
+    }
+    .desktop-save {
+      @apply hidden;
+    }
+    .mobile-sample {
+      @apply block;
+    }
+    .mobile-sample .ob-badge {
+      @apply bg-surface text-[10px] py-1 px-[7px];
+    }
+    .ob-price {
+      @apply text-[40px] tracking-[-1.5px];
+    }
+    .ob-price small {
+      @apply text-[14px] ml-0;
+    }
+    .quote-overview .quote-stats {
+      @apply hidden;
+    }
+    .quote-hero:not(.is-detail) .reference-label {
+      @apply hidden;
+    }
+    .desktop-market-list {
+      @apply hidden;
+    }
+    .mobile-market-list {
+      @apply block mt-4;
+    }
+    .mobile-market-list .section-heading h2 {
+      @apply text-[19px];
+    }
+    .mobile-market-list .market-list > .section-heading {
+      @apply hidden;
+    }
+    .market-table-heading,
+    .market-kind {
+      @apply hidden;
+    }
+    .row-identity {
+      @apply col-start-1 gap-2;
+      grid-row: 1 / 3;
+    }
+    .mobile-market-list .market-row > .save-button {
+      @apply hidden;
+    }
+    .saved-list {
+      @apply p-2;
+    }
+    .saved-list > .section-heading {
+      @apply p-2;
+    }
+    .saved-list .market-row-link {
+      @apply grid-cols-[minmax(80px,1fr)_auto];
+    }
+    .saved-list .row-price,
+    .saved-list .row-change {
+      @apply col-start-2;
+    }
+    .saved-list .sparkline {
+      @apply hidden;
+    }
+    .saved-list .market-row > .save-button {
+      @apply ml-1.5;
+    }
+    .right-rail {
+      @apply block mt-5;
+    }
+    .right-rail > .provenance {
+      @apply hidden;
+    }
+    .macro-card + .macro-card {
+      @apply border-l border-l-line;
+    }
+    .macro-caption,
+    .macro-value-line .sparkline {
+      @apply hidden;
+    }
+    .page-footnote {
+      @apply text-[10px];
+    }
+    .page-footnote > span {
+      @apply block mt-0.5;
+    }
+    .detail-topbar .header-controls {
+      @apply hidden;
+    }
+    .detail-topbar .mobile-header-save {
+      @apply block ml-auto;
+    }
+    .mobile-header-save .save-button {
+      @apply border-0 bg-none bg-transparent;
+    }
+    .asset-route .market-intro,
+    .asset-route .mobile-market-list,
+    .asset-route .right-rail,
+    .asset-route .page-footnote {
+      @apply hidden;
+    }
+    .is-detail .quote-heading {
+      @apply order-0;
+    }
+    .is-detail .ob-price small {
+      @apply text-[15px];
+    }
+    .is-detail .reference-label {
+      @apply mt-0.5;
+    }
+    .is-detail .period-selector {
+      @apply order-3 justify-between mt-3 gap-1.5;
+    }
+    .is-detail .period-selector button {
+      @apply flex-1 py-2 px-2.5 text-[12px];
+    }
+    .is-detail .state-notice {
+      @apply order-1;
+    }
+    .mobile-detail-content {
+      @apply block;
+    }
+    .mobile-detail-content > .quote-stats {
+      @apply border-t border-t-line border-b border-b-line py-4 px-0 mt-4 mx-0 mb-0;
+    }
+    .mobile-detail-content > .quote-stats > div {
+      @apply flex-1;
+    }
+    .mobile-detail-content .quote-stats dd {
+      @apply text-[23px];
+    }
+    .provenance-detail h2,
+    .provenance-detail dl > div:first-child {
+      @apply hidden;
+    }
+    .provenance-detail dd {
+      @apply text-right;
+    }
+    .provenance-detail .mono {
+      @apply text-[11px];
+    }
+    .provenance-detail .about-price {
+      @apply hidden;
+    }
+    .save-full {
+      @apply w-full rounded-3xl mt-1 min-h-12 text-[14px];
+    }
+    .save-full .ob-icon {
+      @apply w-5.5 h-5.5;
+    }
+    .macro-full .macro-grid {
+      @apply grid grid-cols-[1fr] gap-4 border-0 p-0 bg-none bg-transparent;
+    }
+    .macro-full .macro-value-line .sparkline {
+      @apply block;
+    }
+    .macro-full .macro-caption {
+      @apply block;
+    }
+    .macro-full .macro-value {
+      @apply text-[40px];
+    }
+    .empty-state {
+      @apply py-8 px-1;
+    }
+    .empty-state h2 {
+      @apply text-[19px];
+    }
+    .calendar-empty .empty-state {
+      @apply min-h-82.5;
+    }
+    .settings-page > .ob-card {
+      @apply p-4.5;
+    }
+    .theme-thumbnail {
+      @apply h-[85px] p-2 gap-1.5;
+    }
+    .theme-option > small {
+      @apply text-[10px];
+    }
+    .setting-row .ob-input {
+      @apply text-[12px];
+    }
+  }
+  @media (max-width: 359px) {
+    .brand img {
+      @apply w-26;
+    }
+    .ob-price {
+      @apply text-[36px];
+    }
+    .ob-price small,
+    .is-detail .ob-price small {
+      @apply text-[13px];
+    }
+    .mobile-sample .ob-badge {
+      @apply text-[9px];
+    }
+    .row-identity .market-avatar {
+      @apply w-6.5 h-6.5;
+    }
+  }
+  /* Keep dense financial labels readable without shrinking the mobile layout. */
+  .reference-label,
+  .market-kind,
+  .market-table-heading {
+    @apply text-[12px];
+  }
+  .about-price {
+    @apply text-[12px];
+  }
+  .provenance .mono,
+  .observation-date,
+  .macro-caption {
+    @apply text-[11px];
+  }
+  @media (max-width: 1023px) {
+    .market-title-link {
+      @apply inline-flex min-h-11 items-center;
+    }
+  }
+  @media (max-width: 767px) {
+    .mobile-sample .ob-badge {
+      @apply border border-line;
+    }
+    .provenance-detail dd a {
+      @apply min-h-11 items-center;
+    }
+  }
+  .category-tabs {
+    @apply mt-0 mx-0 mb-3 flex-nowrap gap-1.5 max-lg:overflow-auto max-lg:p-[3px] max-lg:-mx-[3px] max-lg:[scrollbar-width:none];
+  }
+  .category-tabs button {
+    @apply min-h-9 py-1.5 px-6 text-[13px] whitespace-nowrap bg-glass bg-sheen border-glass-edge max-lg:min-h-11 max-lg:flex-1 max-md:flex-none max-md:basis-[calc((100%_-_18px)/4)] max-md:px-2;
+  }
+  [data-theme='dark'] .category-tabs button[aria-pressed='true'] {
+    @apply max-md:bg-selection/70 max-md:border-positive/60 max-md:text-positive max-md:shadow-[inset_0_1px_0_#e1f2c728];
+  }
+  .quote-hero {
+    @apply relative p-5 max-md:px-3 max-md:pt-3.5 max-md:pb-3 max-md:bg-surface-subtle/70;
+    background-image:
+      var(--ob-glass-sheen),
+      linear-gradient(
+        115deg,
+        color-mix(in srgb, var(--ob-surface-subtle) 30%, transparent),
+        transparent 70%
+      );
+  }
+  [data-theme='dark'] .quote-hero {
+    @apply border-glass-edge bg-glass;
+  }
+  .quote-heading {
+    @apply flex justify-between items-start gap-3 max-xs:gap-1.5;
+  }
+  .quote-identity h2 {
+    @apply text-[20px] tracking-[-.3px] max-md:text-[18px] max-xs:text-[16px];
+  }
+  .quote-identity p {
+    @apply text-muted text-[13px] mt-[3px] max-md:mt-0 max-md:text-[12px] max-md:pointer-events-none max-xs:text-[11px];
+  }
+  .quote-heading .market-title-link {
+    @apply max-lg:inline-flex max-lg:min-h-11 max-lg:items-center max-md:-my-[11px];
+  }
+  .market-title-arrow {
+    @apply hidden max-md:inline-block max-md:size-3.5 max-md:ml-1 max-md:text-muted;
+  }
+  .quote-overview {
+    @apply flex items-start justify-between mt-3 gap-4 max-md:mt-1.5;
+  }
+  .quote-change {
+    @apply text-[21px] leading-[1.25] font-semibold tracking-[-.6px] mt-0.5 max-md:mt-0 max-md:text-[20px];
+  }
+  .quote-tools {
+    @apply flex flex-col items-end gap-3 max-md:hidden;
+  }
+  .quote-tools .quote-stats {
+    @apply m-0;
+  }
+  .quote-stats dd {
+    @apply text-[21px] font-semibold mt-0.5 mx-0 mb-0 tracking-[-.5px] tabular-nums xl:max-wide:text-[18px];
+  }
+  .period-selector {
+    @apply flex justify-end gap-1 m-0;
+  }
+  .period-selector button {
+    @apply border border-glass-edge bg-glass bg-sheen text-foreground rounded-button min-h-9 py-1.5 px-3.5 text-[12px] font-medium max-lg:min-h-11 xl:max-wide:px-2.5;
+  }
+  .period-selector button[aria-pressed='true'] {
+    @apply bg-accent bg-accent-wash text-accent-foreground border-accent font-semibold;
+  }
+  .mobile-period-selector {
+    @apply hidden;
+  }
+  .is-detail .mobile-period-selector {
+    @apply max-md:flex max-md:order-3 max-md:justify-between max-md:mt-3 max-md:gap-1.5;
+  }
+  .mobile-reference-label {
+    @apply hidden max-md:block max-md:text-[12px] max-md:text-muted max-md:mt-1;
+  }
+  .quote-hero.is-detail {
+    @apply max-md:bg-none max-md:bg-transparent max-md:border-0 max-md:px-0 max-md:pt-2 max-md:pb-0 max-md:flex max-md:flex-col max-md:shadow-none max-md:backdrop-filter-none;
+  }
+  .is-detail .quote-overview {
+    @apply max-md:order-1 max-md:mt-3;
+  }
+  .is-detail .ob-price {
+    @apply max-md:text-[40px] max-xs:text-[36px];
+  }
+  .is-detail .price-chart {
+    @apply max-md:order-2 max-md:mt-3;
+  }
+  .is-detail .quote-identity h2 {
+    @apply max-md:text-[22px] max-xs:text-[19px];
+  }
+  .is-detail .quote-identity p {
+    @apply max-md:text-[13px] max-xs:text-[12px];
+  }
+  .section-heading > a {
+    @apply flex items-center text-[13px] gap-1.5 min-h-9 max-lg:min-w-11 max-lg:min-h-11;
+  }
+  .mobile-market-list > .section-heading a {
+    @apply max-md:min-h-11 max-md:-my-2;
+  }
+  .mobile-market-list > .section-heading {
+    @apply max-md:mb-2 max-md:min-h-7;
+  }
+  .market-row {
+    @apply flex items-center relative gap-2.5 border-b border-b-line/70 pt-0 pr-1 pb-0 pl-2 min-h-14.5 max-md:gap-0 max-md:p-0 max-md:min-h-15;
+  }
+  .market-row-link {
+    @apply min-w-0 flex-1 grid grid-cols-[minmax(140px,1.5fr)_.75fr_1fr_.75fr_1fr] items-center gap-3 min-h-14.5 py-1.5 px-0 rounded-[5px] xl:max-wide:grid-cols-[minmax(125px,1.4fr)_1fr_.8fr_1fr] xl:max-wide:gap-2 max-md:grid-cols-[minmax(0,1fr)_60px_auto] max-md:gap-x-2 max-md:gap-y-0 max-md:min-h-15 max-md:py-2 max-xs:grid-cols-[minmax(0,1fr)_auto];
+  }
+  .row-identity strong {
+    @apply text-[14px] font-semibold max-md:text-[14px];
+  }
+  .row-price {
+    @apply text-right font-semibold text-[15px] max-md:col-start-3 max-md:row-start-1 max-md:text-[14px] max-md:self-end max-xs:col-start-2;
+  }
+  .row-change {
+    @apply text-right font-semibold text-[14px] max-md:col-start-3 max-md:row-start-2 max-md:text-[12px] max-md:self-start max-xs:col-start-2;
+  }
+  .market-row-link > .sparkline {
+    @apply max-md:col-start-2 max-md:w-15 max-md:row-span-2 max-md:row-start-1 max-xs:hidden;
+  }
+  .market-list {
+    @apply mt-4 pt-4.5 px-4.5 pb-2 max-md:py-0 max-md:px-2 max-md:mt-0;
+  }
+  .market-row:hover {
+    @apply bg-selection/65 rounded-lg;
+  }
+  .market-avatar {
+    @apply flex items-center justify-center shrink-0 w-9 h-9 rounded-[11px] text-[15px] font-semibold bg-surface-subtle/60 bg-sheen max-md:size-8 max-md:rounded-full max-md:text-[14px];
+  }
+  .macro-panel {
+    @apply p-4.5 max-md:p-0 max-md:bg-none max-md:bg-transparent max-md:border-0 max-md:rounded-none max-md:shadow-none max-md:backdrop-filter-none;
+  }
+  .macro-panel h2 {
+    @apply text-[20px] max-md:text-[19px];
+  }
+  .macro-panel .section-heading {
+    @apply mb-3.5 max-md:mb-2.5;
+  }
+  .macro-title-link {
+    @apply inline-flex min-h-11 items-center -my-2;
+  }
+  .macro-grid {
+    @apply grid gap-3 max-md:grid-cols-2 max-md:gap-0 max-md:bg-glass max-md:bg-sheen max-md:border max-md:border-glass-edge max-md:rounded-card max-md:py-3 max-md:px-0 max-md:shadow-glass max-md:backdrop-blur-[16px];
+  }
+  .macro-card {
+    @apply border border-glass-edge bg-glass/35 bg-sheen p-3.5 rounded-button max-md:py-0 max-md:px-3.5 max-md:border-0 max-md:rounded-none max-md:bg-none max-md:bg-transparent max-xs:px-3;
+  }
+  .macro-card h3 {
+    @apply text-[16px] tracking-[-.2px] max-md:text-[12px];
+  }
+  .macro-card p {
+    @apply text-[13px] text-muted mt-1 max-md:hidden;
+  }
+  .macro-full .macro-card p {
+    @apply block text-[13px];
+  }
+  .macro-value {
+    @apply text-[36px] font-semibold tracking-[-1.3px] leading-[1.2] max-md:text-[30px];
+  }
+  .macro-value-line {
+    @apply flex items-center justify-between gap-2 mt-2.5 max-md:mt-1.5;
+  }
+  .macro-full .macro-card {
+    @apply p-6 max-md:p-5 max-md:bg-glass max-md:bg-sheen max-md:border max-md:border-glass-edge max-md:rounded-card max-md:shadow-glass max-md:backdrop-blur-[16px];
+  }
+  .provenance h2 {
+    @apply text-[20px] mb-3.5;
+  }
+  .provenance dl > div {
+    @apply grid grid-cols-[72px_minmax(0,1fr)] gap-3 py-3 px-0 border-t border-t-line/70 items-start text-[13px];
+  }
+  .provenance-note {
+    @apply text-[12px] leading-[1.6] text-muted border-t border-t-line/70 mt-0 mx-0 mb-3.5 pt-3.5;
+  }
+  .provenance-detail {
+    @apply max-md:p-0 max-md:border-0 max-md:bg-none max-md:bg-transparent max-md:shadow-none max-md:backdrop-filter-none;
+  }
+  .provenance-detail dl > div {
+    @apply max-md:grid-cols-[78px_minmax(0,1fr)] max-md:text-[13px] max-md:py-2 max-md:px-0;
+  }
+  .provenance-detail dl > div:nth-child(2) {
+    @apply max-md:border-t-0 max-md:items-center max-md:p-0;
+  }
+  .provenance-detail .provenance-note {
+    @apply max-md:text-[12px];
+  }
+  .about-dialog {
+    @apply p-6 max-w-110 w-[calc(100%_-_40px)] bg-glass bg-sheen text-foreground border border-glass-edge rounded-[20px] shadow-[0_24px_120px_#0003] backdrop-blur-[24px];
+  }
+  .price-guide-sheet {
+    @apply p-0 max-w-140 w-[calc(100%_-_40px)] max-h-[85dvh] overflow-hidden;
+  }
+  .price-guide-sheet[open] {
+    @apply flex flex-col;
+  }
+  .price-guide-header {
+    @apply flex items-center justify-between gap-3 px-5 py-2 shrink-0 border-b border-line/60;
+  }
+  .price-guide-header h2 {
+    @apply text-[20px];
+  }
+  .price-guide-content {
+    @apply overflow-y-auto overscroll-contain p-5 text-[13px] leading-relaxed;
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  }
+  .price-guide-content section {
+    @apply mt-5;
+  }
+  .price-guide-content h3 {
+    @apply mb-2 text-[14px] font-semibold;
+  }
+  .price-guide-content .price-guide-formula {
+    @apply my-3 rounded-xl bg-surface-subtle px-3 py-2.5 text-foreground text-[12px] font-medium;
+  }
+  @media (max-width: 767px) {
+    .price-guide-sheet {
+      @apply fixed inset-x-0 bottom-0 top-auto m-0 w-full max-w-none rounded-t-[24px] rounded-b-none border-b-0;
+    }
+  }
+  [data-theme='dark'] .save-full {
+    @apply bg-none bg-transparent border-foreground/65 text-foreground shadow-glass;
+  }
+  [data-theme='dark'] .save-full.is-saved {
+    @apply bg-selection/70 border-positive text-positive;
+  }
+}
+
+@layer components {
+  .detail-topbar {
+    @apply fixed z-30 top-0 inset-x-0 h-[var(--ob-header)] bg-background/80 backdrop-blur-[20px] border-b border-glass-edge;
+  }
+  .detail-topbar-inner {
+    @apply h-full max-w-190 mx-auto px-4 flex items-center justify-between;
+  }
+  .detail-topbar .detail-back,
+  .detail-topbar .detail-share,
+  .detail-topbar .save-button {
+    @apply size-11 min-w-11 min-h-11 rounded-[14px] border-0 bg-none bg-transparent shadow-none;
+  }
+  .detail-topbar .ob-icon {
+    @apply size-[21px];
+  }
+  .detail-header-actions {
+    @apply flex items-center gap-1;
+  }
+  .detail-topbar .detail-header-save {
+    @apply block;
+  }
+  .detail-asset-logo .home-asset-icon {
+    @apply w-11.5 h-11.5 rounded-[14px];
+  }
+  .detail-asset-logo .home-asset-icon img,
+  .detail-asset-logo .home-asset-icon > svg {
+    @apply w-7 h-7;
+  }
+  .detail-24h {
+    @apply bg-[#e8eedc] text-[#42612e] rounded-md px-1.5 py-0.5 text-[10px] font-semibold dark:bg-accent/15 dark:text-accent;
+  }
+  .detail-price {
+    @apply text-[clamp(36px,10vw,46px)] font-bold tracking-[-1.4px] leading-tight whitespace-nowrap;
+  }
+  .detail-price small {
+    @apply text-[14px] font-normal tracking-normal text-muted;
+  }
+  .detail-change-row {
+    @apply flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[16px] font-semibold mt-1.5;
+  }
+  .detail-change-basis,
+  .detail-inspection-time {
+    @apply text-[11px] font-normal text-muted;
+  }
+  .detail-change-basis { opacity: .72; }
+  .detail-brief {
+    @apply mt-5 mb-3;
+  }
+  .detail-brief h2,
+  .detail-data-section h2 {
+    @apply text-[16px] font-semibold tracking-[-.2px];
+  }
+  .detail-brief-copy {
+    @apply text-[12px] leading-[1.65] text-muted mt-1;
+  }
+  .detail-brief-copy.is-collapsed {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+  .detail-brief-toggle {
+    @apply inline-flex items-center gap-0.5 min-h-8 text-[11px] font-medium text-foreground/75;
+  }
+  .detail-brief-toggle .ob-icon {
+    @apply size-3.5;
+  }
+  .detail-chart-toolbar { @apply flex items-center gap-2 mb-2.5; }
+  .detail-periods { @apply flex flex-1 items-center gap-0.5 min-w-0; }
+  .detail-periods button {
+    @apply min-w-0 h-9 flex-1 rounded-[11px] bg-surface-subtle/70 text-[11px] md:text-[12px] text-muted font-medium;
+  }
+  .detail-periods button[aria-pressed='true'] {
+    @apply bg-foreground text-surface font-semibold;
+  }
+  [data-theme='dark'] .detail-periods button[aria-pressed='true'] {
+    background: rgb(238 246 230 / .17);
+    color: var(--ob-text);
+  }
+  .asset-detail .detail-chart-card {
+    @apply px-1.5 py-2 md:px-2 md:py-2.5 rounded-[20px] shadow-[0_2px_12px_#24351d05];
+    border-color: color-mix(in srgb, var(--ob-border) 65%, transparent);
+  }
+  .detail-sample-range {
+    @apply text-[11px] text-muted mb-2;
+  }
+  .asset-detail .price-chart {
+    @apply m-0;
+  }
+  .asset-detail .detail-stats {
+    @apply grid grid-cols-2 p-0 rounded-[16px] overflow-hidden;
+  }
+  .asset-detail .detail-stats.is-market { @apply md:grid-cols-4; }
+  .detail-stats > div {
+    @apply min-w-0 px-4 py-3;
+  }
+  .detail-stats > div:nth-child(even) {
+    @apply border-l border-line/60;
+  }
+  .detail-stats > div:nth-child(n+3) { @apply border-t border-line/60; }
+  @media (min-width: 768px) {
+    .detail-stats.is-market > div:nth-child(n+3) { border-top: 0; }
+    .detail-stats.is-market > div + div { @apply border-l border-line/60; }
+  }
+  .detail-stats dt {
+    @apply text-[11px] text-muted mb-1;
+  }
+  .detail-stats dt span {
+    @apply text-[10px];
+  }
+  .detail-stats dd {
+    @apply m-0 text-[18px] font-semibold tabular-nums tracking-[-.5px] leading-tight whitespace-nowrap;
+  }
+  .detail-stats dd.detail-missing {
+    @apply text-[13px] text-muted tracking-normal;
+  }
+  .detail-data-section {
+    @apply mt-5;
+  }
+  .asset-detail .detail-data-list {
+    @apply p-0 mt-2 rounded-[16px] overflow-hidden;
+  }
+  .detail-data-list > div {
+    @apply grid grid-cols-[76px_minmax(0,1fr)] gap-3 px-4 py-3 text-[12px];
+  }
+  .detail-data-list > div + div {
+    @apply border-t border-line/60;
+  }
+  .detail-data-list dt {
+    @apply text-muted;
+  }
+  .detail-data-list dd {
+    @apply m-0 text-right font-medium min-w-0;
+  }
+  .detail-price-guide {
+    @apply inline-flex items-center gap-1.5 min-h-11 mt-1 text-[12px] font-medium text-muted;
+  }
+  .detail-price-guide .ob-icon {
+    @apply size-4;
+  }
+  .detail-price-guide .ob-icon:last-child {
+    @apply size-3.5;
+  }
+  .detail-content-section {
+    @apply pt-5 pb-1;
+  }
+  .detail-content-section h2 {
+    @apply text-[17px] tracking-[-.3px];
+  }
+  .asset-detail .detail-related-list {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(108px, 1fr);
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 3px;
+  }
+  .detail-related-list::-webkit-scrollbar { display: none; }
+  .asset-detail .detail-related-card {
+    @apply grid grid-cols-[24px_minmax(0,1fr)] content-start gap-x-1.5 gap-y-1 min-h-[118px] p-2.5 rounded-[15px] border border-line/55;
+    background: var(--ob-soft-glass-fill);
+  }
+  .detail-related-card .home-asset-icon {
+    @apply w-6 h-6 rounded-[8px];
+  }
+  .detail-related-card .home-asset-icon img,
+  .detail-related-card .home-asset-icon svg {
+    @apply w-4 h-4;
+  }
+  .detail-related-name {
+    @apply min-w-0 flex flex-col gap-0.5;
+  }
+  .detail-related-name strong {
+    @apply text-[11px] font-semibold leading-[1.2] break-words;
+  }
+  .detail-related-name small {
+    @apply text-[9px] text-muted;
+  }
+  .detail-related-values {
+    @apply col-span-2 flex min-w-0 flex-col items-start gap-0.5 self-end;
+  }
+  .detail-related-values strong {
+    @apply text-[clamp(11px,3vw,14px)] font-semibold whitespace-nowrap tracking-[-.3px];
+  }
+  .detail-related-values small {
+    @apply text-[11px] whitespace-nowrap;
+  }
+  .detail-related-chevron {
+    @apply hidden;
+  }
+  .detail-dialog .provenance {
+    @apply p-0 pt-5 mt-3 bg-none bg-transparent border-0 border-t border-line rounded-none shadow-none backdrop-blur-none;
+  }
+  .detail-dialog {
+    @apply bg-surface;
+  }
+}
+
+@layer components {
+  .home-tabs-page { @apply max-w-240; }
+  .main-content:has(> .home-tabs-page) > .page-utilities { @apply max-w-240; }
+  .home-tabs-page .home-market-status { @apply min-h-11 mb-0 text-[11px] max-xs:text-[10px]; }
+  .home-tabs-page .home-reference-badge { @apply my-0 px-0 gap-1 underline-offset-4 hover:underline; }
+  html:has(.home-tabs-page) {
+    scroll-padding-top: calc(var(--ob-header) + 12px);
+    scroll-padding-bottom: calc(var(--ob-home-nav-height) + 28px + env(safe-area-inset-bottom));
+  }
+  .home-bottom-navigation {
+    @apply fixed z-40 inset-x-3 mx-auto max-w-[540px] rounded-full border;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    transition: transform 240ms cubic-bezier(.22, 1, .36, 1), opacity 180ms ease;
+  }
+  .home-bottom-navigation[data-hidden='true'] {
+    transform: translateY(calc(100% + 24px + env(safe-area-inset-bottom)));
+    @apply opacity-0 pointer-events-none;
+  }
+  .home-tabs { @apply relative isolate grid grid-cols-5 p-[5px] rounded-full; }
+  .home-bottom-navigation {
+    background: #f3f6ed;
+    border-color: rgb(255 255 255 / .64);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .88), inset 0 -1px 0 rgb(255 255 255 / .24), 0 8px 28px rgb(23 45 23 / .1), 0 1px 4px rgb(23 45 23 / .04);
+  }
+  [data-theme='dark'] .home-bottom-navigation {
+    background: #242e27;
+    border-color: rgb(220 243 203 / .24);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .2), inset 0 -1px 0 rgb(255 255 255 / .05), 0 8px 28px rgb(0 0 0 / .26);
+  }
+  @supports ((backdrop-filter: blur(24px)) or (-webkit-backdrop-filter: blur(24px))) {
+    .home-bottom-navigation {
+      background: linear-gradient(145deg, rgb(255 255 255 / .46), rgb(240 248 229 / .26));
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      backdrop-filter: blur(18px) saturate(160%);
+    }
+    [data-theme='dark'] .home-bottom-navigation { background: linear-gradient(145deg, rgb(39 53 42 / .58), rgb(20 31 23 / .42)); }
+  }
+  .home-tabs [role='tab'] {
+    @apply relative z-10 flex flex-col items-center justify-center gap-0.5 min-w-0 px-1 rounded-full text-[11px] leading-[14px] font-medium text-muted cursor-pointer;
+    min-height: calc(var(--ob-home-nav-height) - 12px);
+  }
+  .home-tabs [role='tab'] .ob-icon { @apply size-[22px]; }
+  .home-tabs [role='tab'] > span { @apply whitespace-nowrap; }
+  .home-tabs-page .home-tabs [role='tab'][aria-selected='true'] { @apply bg-transparent text-[#172719] font-[650] shadow-none; }
+  [data-theme='dark'] .home-tabs-page .home-tabs [role='tab'][aria-selected='true'] { @apply text-[#e6f6d3]; }
+  @media (prefers-reduced-motion: reduce) {
+    .home-bottom-navigation { transition: none; }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    .home-bottom-navigation { background: #f3f6ed; -webkit-backdrop-filter: none; backdrop-filter: none; }
+    [data-theme='dark'] .home-bottom-navigation { background: #242e27; }
+  }
+  .home-tabs-page .home-sections { @apply gap-[18px] md:gap-[22px]; }
+  .home-tabs-page .home-section-heading { @apply min-h-6 mb-2.5; }
+  .home-tabs-page .home-section-heading h2 { @apply text-[14px] leading-5 font-bold tracking-[-.2px]; }
+  .home-all-link { @apply inline-flex shrink-0 items-center gap-1 min-h-11 -my-2 text-[12px] text-muted hover:text-foreground; }
+  .home-all-link .ob-icon { @apply size-3; }
+  .home-section-link { @apply inline-flex items-center gap-2 min-h-11; }
+  .home-section-link > .ob-icon { @apply size-4 font-normal; }
+  .home-tabs-page .home-indicator-card { @apply px-3 py-3 min-h-[108px] md:px-4 md:py-3.5; }
+  .home-tabs-page .home-indicator-name { @apply gap-2 mb-2 text-[12px]; }
+  .home-tabs-page .home-indicator-name .home-asset-icon { @apply size-7 rounded-full; }
+  .home-tabs-page .home-indicator-name .home-asset-icon > svg { @apply size-4.5; }
+  .home-tabs-page .home-indicator-bottom .home-card-value { @apply text-[25px] leading-7 mb-0.5; }
+  .home-tabs-page .home-indicator-bottom { @apply gap-1; }
+  .home-brand-banner {
+    @apply relative isolate flex items-center gap-3 w-full min-h-[96px] overflow-hidden rounded-2xl border border-[#dceecb]/50 px-4 py-4 text-left text-[#173b24] bg-[#eff8e7] text-[16px];
+    background-image: linear-gradient(105deg, rgb(245 251 239 / .95), rgb(232 247 215 / .48));
+  }
+  .home-brand-banner > .ob-icon { @apply size-7 shrink-0 relative z-10; }
+  .brand-orbit {
+    @apply absolute w-[125px] h-[177px] right-4 -bottom-[79px] rounded-[50%] border-[24px] border-[#bae278] pointer-events-none;
+    transform: rotate(34deg) skewY(-8deg);
+    box-shadow: inset 4px 5px 12px #91c5538c, inset -5px -4px 8px #eaffcba6, -7px -7px 13px #dff6aa88, 7px 7px 10px #80af4233;
+    background: transparent;
+  }
+  .banner-arrow { @apply relative z-10 flex items-center justify-center size-8 rounded-full bg-white/85 ml-auto shrink-0; }
+  .banner-arrow .ob-icon { @apply size-4; }
+  .snapshot-card {
+    @apply grid items-center gap-2.5 min-h-[66px] p-3 rounded-2xl;
+    grid-template-columns: 34px minmax(0, 1fr) max-content var(--home-spark-width) 12px;
+  }
+  .snapshot-name { @apply truncate text-[13px] font-medium tracking-[-.25px]; }
+  .snapshot-quote { @apply text-right whitespace-nowrap min-w-0; }
+  .snapshot-quote strong { @apply block text-[17px] leading-[23px] font-semibold tracking-[-.5px]; }
+  .snapshot-quote .home-card-change { @apply text-[11px] leading-[17px]; }
+  .snapshot-chevron { @apply size-3.5 text-muted justify-self-end col-start-5; }
+  .home-perspective { @apply flex items-center gap-3 rounded-2xl bg-[#eef5e8]/65 border border-[#e5eddd]/60 px-3.5 py-4; }
+  .perspective-icon { @apply flex items-center justify-center size-9 rounded-full bg-[#dfedca]/70 text-[#334c27] shrink-0; }
+  .perspective-icon svg { @apply size-6; }
+  .home-brand-footer { @apply flex items-center gap-3 mt-7 text-[11px] text-muted; }
+  .home-tabs-page .page-footnote { @apply mt-4 text-[10px]; }
+  [data-theme='dark'] .home-brand-banner { @apply bg-[#223019] border-[#496136]/25 text-[#f1f6e9]; background-image: linear-gradient(105deg, #202b1c, #1a261bc9); }
+  [data-theme='dark'] .home-brand-banner > .ob-icon { @apply text-[#c8ed84]; }
+  [data-theme='dark'] .brand-orbit { @apply border-[#9bc84c]; box-shadow: inset 4px 5px 12px #537c25aa, inset -5px -4px 8px #d7ef9999, -7px -7px 13px #c6e88744, 7px 7px 10px #0b160888; }
+  [data-theme='dark'] .banner-arrow { @apply bg-[#b1d584]/40 text-white; }
+  [data-theme='dark'] .home-perspective { @apply bg-[#232f23]/65 border-[#71836a]/20; }
+  [data-theme='dark'] .perspective-icon { @apply bg-[#40552b]/50 text-[#c8ed84]; }
+  [data-theme='dark'] .home-tabs-page .home-asset-icon:not(:has(img)):not(.oreunae-icon-badge) { @apply bg-[#343e39] text-[#eef4ec]; }
+  @media (max-width: 359px) {
+    .home-tabs [role='tab'] { @apply text-[11px]; }
+    .home-tabs-page .home-indicator-card { @apply px-2.5; }
+    .home-tabs-page .home-indicator-name { @apply gap-1.5 text-[11px]; }
+    .home-tabs-page .home-indicator-name .home-asset-icon { @apply size-6; }
+    .home-tabs-page .home-indicator-bottom .home-card-value { @apply text-[24px]; }
+    .home-brand-banner { @apply px-3 gap-2 text-[14px]; }
+    .snapshot-card { @apply gap-1.5 px-2.5; grid-template-columns: 30px minmax(0, 1fr) max-content 32px 10px; }
+    .snapshot-card .home-asset-icon { @apply size-7.5; }
+    .snapshot-card .home-mini-chart { @apply w-8; }
+    .snapshot-name { @apply text-[12px]; }
+    .snapshot-quote strong { @apply text-[16px]; }
+  }
+}
+
+@layer components {
+  .home-indicator-sections { @apply grid grid-cols-1; }
+  .home-indicator-sections .indicator-section { @apply min-w-0; }
+  .indicator-section-card { @apply p-0 rounded-[20px] overflow-hidden; }
+  .macro-tile-grid { @apply flex flex-col; }
+  .macro-tile {
+    @apply relative grid items-center gap-3 min-w-0 min-h-[60px] pl-4 pr-7 py-2.5 border-t border-line/55 transition-colors hover:bg-selection/20;
+    grid-template-columns: minmax(0, 1fr) max-content 52px;
+    scroll-margin-top: calc(var(--ob-header) + 66px);
+  }
+  .macro-tile:first-child { @apply border-t-0; }
+  .macro-tile-identity, .macro-tile-label { display: contents; }
+  .macro-tile-icon, .macro-tile-ticker { @apply hidden; }
+  .macro-tile-name { @apply block min-w-0 text-[14px] leading-5 font-semibold; overflow-wrap: anywhere; }
+  .macro-tile-quote { @apply flex items-baseline justify-end gap-2 whitespace-nowrap; }
+  .macro-tile-quote .home-card-change { @apply shrink-0 text-right text-[12px] leading-4 font-semibold min-w-[48px]; }
+  .macro-tile-price { @apply block text-[20px] leading-7 font-bold tracking-[-.5px] whitespace-nowrap; }
+  .macro-tile-price.is-extra-long { @apply text-[18px]; }
+  .macro-value-basis { @apply text-[10px] font-medium tracking-normal text-muted; }
+  .macro-tile .home-mini-chart { @apply w-full h-[22px]; }
+  .macro-tile .home-mini-chart .sparkline > path[fill='none'] { stroke-width: 1.75; }
+  .macro-tile .home-mini-chart stop:first-child { stop-opacity: .07; }
+  .home-indicator-sections .indicator-section,
+  .home-indicator-sections .indicator-section-card {
+    --ob-glass-edge: var(--ob-soft-glass-edge);
+    --ob-glass-shadow: var(--ob-soft-glass-shadow);
+  }
+  .indicator-toggle { @apply inline-flex items-center justify-center gap-1.5 min-h-11 shrink-0 text-[12px] font-medium text-muted hover:text-foreground; }
+  .indicator-toggle .ob-icon { @apply size-3.5 transition-transform duration-200; }
+  .indicator-toggle[aria-expanded='true'] .ob-icon { @apply rotate-180; }
+  .home-section-heading .indicator-toggle { @apply -my-2 pl-2; scroll-margin-top: calc(var(--ob-header) + 66px); }
+  .indicator-toggle-bottom { @apply w-full border-t border-line/55; }
+  .indicator-expansion { display: grid; grid-template-rows: 0fr; visibility: hidden; opacity: 0; transition: grid-template-rows 200ms ease, opacity 200ms ease, visibility 0s 200ms; }
+  .indicator-expansion.is-expanded { grid-template-rows: 1fr; visibility: visible; opacity: 1; transition-delay: 0s; }
+  .indicator-expansion-inner { @apply min-h-0 overflow-hidden; }
+  .indicator-expansion .macro-tile:first-child { @apply border-t border-line/55; }
+  .home-indicator-sections .home-brand-banner { @apply min-h-[82px] mt-0 text-[14px]; }
+  .home-indicator-sections .home-brand-banner > .ob-icon { @apply size-8; }
+  .home-indicator-sections .brand-orbit { @apply w-24 h-36 -right-1 -bottom-[104px] border-[15px] opacity-35; }
+  @media (width < 1024px) {
+    .indicator-section > .indicator-section-card {
+      @apply overflow-visible border-0 rounded-none bg-transparent bg-none shadow-none backdrop-blur-none;
+    }
+    .indicator-section .macro-tile-grid { @apply gap-2.5; }
+    .indicator-section .macro-tile,
+    .indicator-section .macro-tile:first-child {
+      @apply min-h-16 border border-glass-edge rounded-2xl bg-glass bg-sheen shadow-glass backdrop-blur-[16px];
+    }
+    .indicator-section .indicator-expansion .macro-tile-grid { @apply pt-2.5; }
+    .indicator-section .home-section-heading .indicator-toggle { @apply hidden; }
+    .indicator-section .indicator-toggle-bottom { @apply mt-2 border-0 rounded-xl; }
+  }
+  @media (min-width: 1024px) {
+    .home-tabs-page,
+    .main-content:has(> .home-tabs-page) > .page-utilities { @apply max-w-280; }
+    .home-tabs-page .home-indicator-sections { @apply grid-cols-2 items-start gap-x-6 gap-y-[22px]; }
+    .home-indicator-sections .indicator-section { @apply min-w-0; }
+    .indicator-section > .indicator-section-card {
+      @apply overflow-visible border-0 rounded-none bg-transparent bg-none shadow-none backdrop-blur-none;
+    }
+    .indicator-section .macro-tile-grid { @apply grid grid-cols-2 gap-3; }
+    .indicator-section .macro-tile,
+    .indicator-section .macro-tile:first-child {
+      @apply min-h-[108px] p-3 gap-x-2 gap-y-1.5 border border-glass-edge rounded-2xl bg-glass bg-sheen shadow-glass backdrop-blur-[16px] transition-[border-color,box-shadow] duration-150 hover:border-focus/40 hover:shadow-[inset_0_1px_0_#ffffff35,0_8px_28px_#25351b08];
+      grid-template-columns: max-content minmax(0, 1fr);
+    }
+    .indicator-section .macro-tile-identity { @apply col-span-2 flex items-center gap-2.5 min-w-0 pr-5; }
+    .indicator-section .macro-tile > .home-card-chevron { @apply top-3 right-3 translate-y-0; }
+    .indicator-section .macro-tile-label { @apply block min-w-0; }
+    .indicator-section .macro-tile-icon { @apply block shrink-0; }
+    .indicator-section .macro-tile-ticker { @apply block text-[10px] leading-4 text-muted; }
+    .indicator-section .macro-tile-quote { @apply col-start-1 row-start-2 flex-col items-start gap-0; }
+    .indicator-section .macro-tile-quote .home-card-change { @apply text-left; }
+    .indicator-section .macro-tile > .home-mini-chart { @apply col-start-2 row-start-2 justify-self-end w-full max-w-[108px] h-11; }
+    .indicator-section .macro-tile > .home-empty-value { @apply col-span-2; }
+    .indicator-section .indicator-expansion .macro-tile-grid { @apply pt-3; }
+    .indicator-section .indicator-toggle-bottom { @apply hidden; }
+    .home-indicator-sections .home-brand-banner { @apply col-span-2; }
+  }
+  @media (max-width: 374px) {
+    .macro-tile { @apply gap-1.5 pl-3 pr-7; grid-template-columns: minmax(0, 1fr) max-content 30px; }
+    .macro-tile-name { @apply text-[13px]; }
+    .macro-tile-quote { @apply gap-1.5; }
+    .macro-tile-price { @apply text-[18px]; }
+    .macro-tile-price.is-extra-long { @apply text-[16px]; }
+    .macro-tile-quote .home-card-change { @apply text-[11px] min-w-[43px]; }
+    .macro-tile .home-mini-chart { @apply h-5; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .indicator-expansion, .indicator-toggle .ob-icon { transition: none; }
+  }
+}
+
+@layer components {
+  /* Desktop hover stays separate from touch press feedback. */
+  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    .home-tabs-page {
+      --home-hover-ease: cubic-bezier(.22, 1, .36, 1);
+      --home-hover-shadow: 0 12px 28px rgb(30 49 24 / .10), 0 3px 8px rgb(30 49 24 / .04);
+    }
+    [data-theme='dark'] .home-tabs-page {
+      --home-hover-shadow: 0 14px 30px rgb(0 0 0 / .28), 0 0 0 1px rgb(199 237 140 / .10);
+    }
+    .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile) {
+      @apply relative;
+      transition: transform 300ms var(--home-hover-ease), box-shadow 220ms ease, border-color 180ms ease;
+    }
+    .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile):hover {
+      @apply z-10 border-focus/30;
+      box-shadow: var(--ob-glass-shadow), var(--home-hover-shadow);
+    }
+    .home-tabs-page .home-tabs [role='tab'] {
+      transition: transform 260ms var(--home-hover-ease), box-shadow 220ms ease, background-color 180ms ease;
+    }
+    .home-tabs-page .home-tabs [role='tab']:hover {
+      @apply z-10 text-foreground;
+    }
+    .indicator-section .indicator-expansion.is-expanded .indicator-expansion-inner {
+      @apply overflow-visible;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile):hover {
+        transform: translateY(-4px) scale(1.008);
+      }
+      .home-tabs-page .home-tabs [role='tab']:hover {
+        transform: translateY(-3px) scale(1.015);
+      }
+      /* Bridge the lifted bottom edge so a stationary cursor never flickers. */
+      .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile, .home-tabs [role='tab'])::before {
+        content: '';
+        @apply absolute inset-x-0 top-full h-1.5;
+      }
+      .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile, .home-tabs [role='tab']):active {
+        transform: translateY(-1px) scale(.995);
+        transition-duration: 100ms;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile, .home-tabs [role='tab']) {
+        transition: none;
+      }
+    }
+  }
+}
+
+@layer components {
+  /* Home summaries: two columns, two or four initial items, charts live in details. */
+  .home-tabs-page .home-asset-grid,
+  .home-tabs-page .indicator-section .macro-tile-grid { @apply grid grid-cols-2 gap-2.5; }
+  .home-tabs-page .indicator-section .macro-tile,
+  .home-tabs-page .indicator-section .macro-tile:first-child {
+    @apply flex flex-col items-stretch justify-center min-h-[72px] px-2.5 py-1.5 gap-0 border border-glass-edge rounded-2xl bg-glass bg-sheen shadow-glass;
+    container-type: inline-size;
+  }
+  .home-tabs-page .indicator-section .macro-tile-identity { @apply flex items-center gap-1 min-w-0 pr-5; }
+  .home-tabs-page .indicator-section .macro-tile-label { @apply block min-w-0; }
+  .home-tabs-page .indicator-section .macro-tile-name { @apply truncate text-[12px] leading-4; }
+  .home-tabs-page .indicator-section .macro-tile-icon { @apply block shrink-0; }
+  .home-tabs-page .indicator-section .macro-tile-ticker { @apply hidden; }
+  .home-tabs-page .indicator-section .macro-tile-quote { @apply flex flex-row flex-wrap items-center justify-between gap-x-1 gap-y-0; }
+  .home-tabs-page .indicator-section .macro-tile-price { @apply text-[21px] leading-6; }
+  .home-tabs-page .indicator-section .macro-tile-price.is-extra-long { font-size: clamp(16px, 12cqi, 21px); }
+  .home-tabs-page .indicator-section .macro-tile-quote .home-card-change { @apply text-right text-[10px] leading-[14px] min-w-0; }
+  .home-tabs-page .home-asset-card { @apply min-h-[72px] px-2.5 py-[5px]; }
+  .home-tabs-page .home-asset-card .home-asset-link { @apply grid grid-cols-[24px_minmax(0,1fr)] items-center content-between min-h-[60px] gap-x-1 gap-y-0 p-0; }
+  .home-tabs-page .home-preipo-card:has(.home-period-badge.is-candidate) .home-asset-link { @apply pr-0; }
+  .home-tabs-page .home-asset-link > .home-asset-icon { @apply col-start-1 row-start-1 justify-self-center; }
+  .home-tabs-page .home-asset-card .home-asset-icon.is-brand { @apply flex size-6; }
+  .home-tabs-page .macro-tile-icon .home-asset-icon.is-semantic { @apply flex size-6; }
+  .home-tabs-page .home-asset-card .home-asset-icon.is-brand img { @apply size-5 object-contain; }
+  .home-tabs-page .macro-tile-icon .home-asset-icon.is-semantic svg { @apply size-4; }
+  .home-tabs-page .home-asset-card .home-asset-icon.is-semantic { @apply flex size-6; }
+  .home-tabs-page .home-asset-card .home-asset-icon.is-semantic svg { @apply size-4; }
+  .home-tabs-page :is(.home-asset-card, .macro-tile-icon) .home-asset-icon > span { @apply text-[10px]; }
+  .home-tabs-page .home-period-badge { @apply hidden; }
+  .home-tabs-page .home-asset-identity { @apply col-start-2 row-start-1 pr-5; }
+  .home-tabs-page .home-asset-quote { @apply col-start-1 col-span-2 row-start-2; }
+  .home-tabs-page .market-card .home-asset-identity { @apply pr-[54px]; }
+  .home-tabs-page .home-asset-name,
+  .home-tabs-page .home-asset-identity .market-name { @apply text-[12px] leading-[14px]; }
+  .home-tabs-page .home-card-ticker { @apply text-[9px] leading-[10px]; }
+  .home-tabs-page .home-asset-quote,
+  .home-tabs-page .home-price-stack { @apply flex flex-wrap items-center justify-between gap-x-1 gap-y-0 min-w-0 text-left; }
+  .home-tabs-page .home-price-stack { @apply w-full; }
+  .home-tabs-page .home-card-value { @apply text-[21px] leading-5; }
+  .home-tabs-page .home-card-value.is-long { font-size: clamp(16px, 12cqi, 21px); }
+  .home-tabs-page .home-asset-quote .home-card-change { @apply shrink-0 text-[10px] leading-[14px]; }
+  .home-tabs-page .home-card-change { @apply flex flex-row items-center gap-1 ml-auto; }
+  .home-card-delta { @apply block text-[10px] leading-4; }
+  .home-tabs-page .home-card-delta { @apply text-muted font-normal; }
+  .home-card-rate { @apply inline-block rounded px-1 text-[10px] leading-4 font-semibold; background-color: color-mix(in srgb, currentColor 9%, transparent); }
+  /* Keep the title-row control separate from wrapped quote information. */
+  .home-tabs-page .home-asset-card > .save-button { @apply right-7 top-0 bottom-auto translate-y-0 w-8 min-w-8 h-7 min-h-7 p-1.5; }
+  .home-tabs-page .home-asset-card > .save-button .ob-icon { @apply size-4; }
+  .home-tabs-page .home-card-chevron,
+  .home-tabs-page .indicator-section .macro-tile > .home-card-chevron { @apply right-2.5 top-3 translate-y-0; }
+  .home-tabs-page .home-expandable-section .home-section-heading:has(.indicator-toggle-heading) { @apply mb-1.5; }
+  .home-tabs-page .home-expandable-section .home-section-heading .indicator-toggle-heading {
+    @apply relative isolate flex justify-end w-fit min-h-11 ml-auto my-0 px-2 border-0 rounded-xl text-[11px];
+  }
+  .home-tabs-page .home-expandable-section .indicator-toggle-heading::after {
+    content: '';
+    @apply absolute -z-10 inset-x-0 inset-y-2.5 rounded-lg border border-glass-edge bg-glass bg-sheen;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .08);
+  }
+  .home-tabs-page .home-expandable-section .indicator-expansion :is(.macro-tile-grid, .home-asset-grid) { @apply pt-2.5; }
+}
+
+@layer components {
+  /* Compact controls share the navigation's material, with quieter elevation. */
+  .header-actions {
+    @apply relative isolate inline-flex items-center shrink-0 gap-0 h-11;
+  }
+  .header-actions::before {
+    content: '';
+    @apply absolute -z-10 inset-x-0 inset-y-px rounded-[14px] border pointer-events-none;
+    background: var(--ob-control-glass-fill);
+    border-color: var(--ob-control-glass-edge);
+    box-shadow: var(--ob-control-glass-shadow);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  .header-actions .header-action { @apply h-11 min-w-11 px-2.5 py-0 rounded-[13px]; }
+  .header-actions .header-action.active { @apply bg-selection/60 text-positive; }
+  .header-actions .header-action:hover { @apply bg-selection/45; }
+  .header-actions .header-action .ob-icon,
+  .header-actions .locale-select > .ob-icon:first-child { @apply size-[21px] shrink-0; }
+  .header-actions .locale-select { @apply w-[66px] h-11 gap-0; }
+  .header-actions .locale-select > .ob-icon:first-child { @apply absolute size-5 left-0 pointer-events-none; }
+  .header-actions .locale-select > .ob-icon:last-child { @apply size-3 right-1 pointer-events-none; }
+  .header-actions .locale-select select { @apply w-full h-11 min-h-11 pl-[26px] pr-4 py-0 text-[12px] rounded-[13px]; }
+  .home-asset-icon.is-brand { @apply bg-transparent rounded-none; }
+  .home-asset-icon.is-brand img { @apply object-contain; }
+  .home-tabs-page .home-asset-card .home-asset-icon.asset-naver img { @apply size-[18px]; }
+  [data-theme='dark'] .home-asset-icon.is-brand img { filter: invert(1); }
+  [data-theme='dark'] .home-asset-icon.asset-bitcoin img { filter: invert(59%) sepia(90%) saturate(2000%) hue-rotate(359deg) brightness(101%) contrast(102%); }
+  .home-tabs-page .home-card-chevron,
+  .home-tabs-page .snapshot-chevron { @apply size-3.5 opacity-[.65]; stroke-width: 1.8; }
+  .home-tabs-page .home-tabs [role='tab'] .ob-icon { stroke-width: 1.9; }
+  @media (max-width: 359px) {
+    .home-tabs-page .home-asset-card .home-asset-link { grid-template-columns: 24px minmax(0, 1fr); }
+    .home-tabs-page .home-asset-card .home-asset-icon.is-brand,
+    .home-tabs-page .home-asset-card .home-asset-icon.is-semantic { @apply size-6; }
+    .home-tabs-page .home-asset-card .home-asset-icon.is-brand img { @apply size-[18px]; }
+    .home-tabs-page .home-asset-card :is(.market-name, .home-asset-name) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      white-space: normal;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+    }
+  }
+  .header-controls > .theme-toggle .ob-icon { @apply size-[21px]; }
+  .home-tabs-page .home-asset-card,
+  .home-tabs-page .indicator-section .macro-tile {
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
+  [data-theme] .home-tabs-page .home-asset-icon:not(:has(img)):not(.oreunae-icon-badge) {
+    background-color: var(--ob-marker-fill);
+    color: var(--ob-text);
+  }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    :root, [data-theme] {
+      --ob-soft-glass-fill: var(--ob-surface);
+      --ob-soft-glass-edge: var(--ob-border);
+      --ob-control-glass-fill: var(--ob-surface);
+      --ob-control-glass-edge: var(--ob-border);
+    }
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    :root, [data-theme] {
+      --ob-soft-glass-fill: var(--ob-surface);
+      --ob-soft-glass-edge: var(--ob-border);
+      --ob-control-glass-fill: var(--ob-surface);
+      --ob-control-glass-edge: var(--ob-border);
+    }
+    .header-actions::before,
+    .home-tabs-page .home-asset-card,
+    .home-tabs-page .indicator-section .macro-tile {
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+}
+
+@layer components {
+  @media (width < 1024px), (hover: none), (pointer: coarse) {
+    .home-tabs-page .home-tabs [role='tab'] {
+      @apply z-10;
+      transition: transform 180ms ease-out, color 150ms ease;
+    }
+    .home-tabs-page .home-tabs [role='tab'][aria-selected='true'] { @apply bg-transparent shadow-none; }
+    .home-tabs-page .home-asset-card {
+      transition: transform 180ms ease-out, box-shadow 180ms ease-out, border-color 150ms ease;
+    }
+    /* Safari can retain :hover after a tap; touch feedback has an explicit end. */
+    .home-tabs-page .home-asset-card:hover { @apply border-glass-edge; box-shadow: var(--ob-glass-shadow); }
+    .home-tabs-page .indicator-section .macro-tile:hover { @apply bg-glass; }
+    .home-tabs-page .indicator-section .macro-tile { transition: background-color 150ms ease; }
+    .home-tabs-page .indicator-section .macro-tile[data-touch-pressed] { @apply bg-selection/35; }
+    .home-tabs-page .home-asset-card[data-touch-pressed] {
+      @apply border-focus/30;
+      box-shadow: inset 0 1px 0 rgb(255 255 255 / .12);
+      transition-duration: 100ms;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .home-tabs-page .home-tabs [role='tab'][data-touch-pressed] { transform: scale(.98); transition-duration: 100ms; }
+      .home-tabs-page .home-asset-card[data-touch-pressed] { transform: scale(.985); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .home-tabs-page :is(.home-asset-card, .indicator-section .macro-tile, .home-tabs [role='tab']) { transition: none; }
+    }
+  }
+}

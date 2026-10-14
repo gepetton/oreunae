@@ -1,0 +1,292 @@
+{
+  "demo": true,
+  "defaultMarketId": "demo-smsn-usdc",
+  "quote": "USDC",
+  "markets": [
+    {
+      "id": "demo-smsn-usdc",
+      "symbol": "SMSN",
+      "quote": "USDC",
+      "name": {
+        "en": "Samsung Electronics",
+        "ko": "삼성전자"
+      },
+      "kind": "perpetual",
+      "category": "korea",
+      "price": "1248.60",
+      "prev24h": "1220.05",
+      "change24hPct": "2.34",
+      "high24h": "1264.20",
+      "low24h": "1218.80",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "reference-only",
+      "source": {
+        "name": "Hyperliquid",
+        "url": "https://hyperliquid.xyz/",
+        "basis": "single-market"
+      }
+    },
+    {
+      "id": "demo-nvda-usdc",
+      "symbol": "NVDA",
+      "quote": "USDC",
+      "name": {
+        "en": "NVIDIA",
+        "ko": "엔비디아"
+      },
+      "kind": "perpetual",
+      "category": "us",
+      "price": "182.40",
+      "prev24h": "180.09",
+      "change24hPct": "1.28",
+      "high24h": "184.80",
+      "low24h": "178.60",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-btc-usdc",
+      "symbol": "BTC",
+      "quote": "USDC",
+      "name": {
+        "en": "Bitcoin",
+        "ko": "비트코인"
+      },
+      "kind": "crypto",
+      "category": "crypto",
+      "price": "64280.00",
+      "prev24h": "64551.11",
+      "change24hPct": "-0.42",
+      "high24h": "65080.00",
+      "low24h": "63820.00",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-gold-usdc",
+      "symbol": "GOLD",
+      "quote": "USDC",
+      "name": {
+        "en": "Gold",
+        "ko": "금"
+      },
+      "kind": "perpetual",
+      "category": "commodities",
+      "price": "2480.50",
+      "prev24h": "2464.97",
+      "change24hPct": "0.63",
+      "high24h": "2501.00",
+      "low24h": "2451.20",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-sk-hynix",
+      "symbol": "000660",
+      "quote": "KRW",
+      "name": {
+        "en": "SK hynix",
+        "ko": "SK하이닉스"
+      },
+      "kind": "candidate",
+      "category": "korea",
+      "price": "189500.00",
+      "prev24h": "185000.00",
+      "change24hPct": "2.43",
+      "high24h": "189889.73",
+      "low24h": "184911.92",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "candidate",
+      "source": null
+    },
+    {
+      "id": "demo-hyundai",
+      "symbol": "005380",
+      "quote": "KRW",
+      "name": {
+        "en": "Hyundai Motor",
+        "ko": "현대자동차"
+      },
+      "kind": "candidate",
+      "category": "korea",
+      "price": "248000.00",
+      "prev24h": "252000.00",
+      "change24hPct": "-1.59",
+      "high24h": "252748.38",
+      "low24h": "247257.82",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "candidate",
+      "source": null
+    },
+    {
+      "id": "demo-naver",
+      "symbol": "035420",
+      "quote": "KRW",
+      "name": {
+        "en": "NAVER",
+        "ko": "NAVER"
+      },
+      "kind": "candidate",
+      "category": "korea",
+      "price": "214500.00",
+      "prev24h": "211000.00",
+      "change24hPct": "1.66",
+      "high24h": "214915.36",
+      "low24h": "209974.83",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "candidate",
+      "source": null
+    },
+    {
+      "id": "demo-aapl-usdc",
+      "symbol": "AAPL",
+      "quote": "USDC",
+      "name": {
+        "en": "Apple",
+        "ko": "애플"
+      },
+      "kind": "perpetual",
+      "category": "us",
+      "price": "228.50",
+      "prev24h": "226.15",
+      "change24hPct": "1.04",
+      "high24h": "229.18",
+      "low24h": "225.73",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-tsla-usdc",
+      "symbol": "TSLA",
+      "quote": "USDC",
+      "name": {
+        "en": "Tesla",
+        "ko": "테슬라"
+      },
+      "kind": "perpetual",
+      "category": "us",
+      "price": "248.80",
+      "prev24h": "254.20",
+      "change24hPct": "-2.12",
+      "high24h": "255.05",
+      "low24h": "246.67",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-msft-usdc",
+      "symbol": "MSFT",
+      "quote": "USDC",
+      "name": {
+        "en": "Microsoft",
+        "ko": "마이크로소프트"
+      },
+      "kind": "perpetual",
+      "category": "us",
+      "price": "438.60",
+      "prev24h": "433.80",
+      "change24hPct": "1.11",
+      "high24h": "438.60",
+      "low24h": "429.92",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-amzn-usdc",
+      "symbol": "AMZN",
+      "quote": "USDC",
+      "name": {
+        "en": "Amazon",
+        "ko": "아마존"
+      },
+      "kind": "perpetual",
+      "category": "us",
+      "price": "198.40",
+      "prev24h": "199.70",
+      "change24hPct": "-0.65",
+      "high24h": "203.67",
+      "low24h": "197.63",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-eth-usdc",
+      "symbol": "ETH",
+      "quote": "USDC",
+      "name": {
+        "en": "Ethereum",
+        "ko": "이더리움"
+      },
+      "kind": "crypto",
+      "category": "crypto",
+      "price": "3420.50",
+      "prev24h": "3350.00",
+      "change24hPct": "2.10",
+      "high24h": "3420.50",
+      "low24h": "3334.71",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-sol-usdc",
+      "symbol": "SOL",
+      "quote": "USDC",
+      "name": {
+        "en": "Solana",
+        "ko": "솔라나"
+      },
+      "kind": "crypto",
+      "category": "crypto",
+      "price": "148.60",
+      "prev24h": "151.20",
+      "change24hPct": "-1.72",
+      "high24h": "152.89",
+      "low24h": "148.19",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null
+    },
+    {
+      "id": "demo-xrp-usdc",
+      "symbol": "XRP",
+      "quote": "USDC",
+      "name": {
+        "en": "XRP",
+        "ko": "엑스알피"
+      },
+      "kind": "crypto",
+      "category": "crypto",
+      "price": "0.5842",
+      "prev24h": "0.5721",
+      "change24hPct": "2.12",
+      "high24h": "0.5850",
+      "low24h": "0.5707",
+      "asOf": "2026-09-12T21:42:08Z",
+      "demo": true,
+      "sourceStatus": "unverified",
+      "source": null,
+      "displayDecimals": 4
+    }
+  ]
+}

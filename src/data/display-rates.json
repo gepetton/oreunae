@@ -1,0 +1,10 @@
+{
+  "demo": true,
+  "base": "USDC",
+  "method": "fixed-synthetic-rate",
+  "description": "UI-only synthetic rates, constant across the entire sample history. These are not observed or live exchange rates.",
+  "rates": {
+    "KRW": "1375",
+    "USD": "0.9998"
+  }
+}

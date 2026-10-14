@@ -1,0 +1,88 @@
+{
+  "version": "1.0.0",
+  "defaultTheme": "light",
+  "themes": {
+    "light": {
+      "background": "#F6F7F2",
+      "surface": "#FFFFFF",
+      "surfaceSubtle": "#EFF3E6",
+      "text": "#1D271C",
+      "textMuted": "#5D6859",
+      "border": "#DFE3D8",
+      "accent": "#CEE879",
+      "accentText": "#1D271C",
+      "positive": "#4D692C",
+      "negative": "#B34F43",
+      "focus": "#4D692C",
+      "selection": "#EFF3E6"
+    },
+    "dark": {
+      "background": "#111412",
+      "surface": "#1A201A",
+      "surfaceSubtle": "#20271F",
+      "text": "#F0F3E9",
+      "textMuted": "#ADB7A6",
+      "border": "#30392E",
+      "accent": "#D6EE84",
+      "accentText": "#111412",
+      "positive": "#D6EE84",
+      "negative": "#EC9B87",
+      "focus": "#D6EE84",
+      "selection": "#303B23"
+    }
+  },
+  "font": {
+    "sans": "Geist Sans",
+    "mono": "Geist Mono",
+    "korean": "Pretendard",
+    "weights": [
+      400,
+      500,
+      600,
+      700
+    ],
+    "sizes": {
+      "caption": 12,
+      "bodySmall": 14,
+      "body": 16,
+      "section": 20,
+      "title": 28,
+      "priceMobile": 40,
+      "priceDesktop": 44
+    }
+  },
+  "spacing": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    32,
+    40,
+    48
+  ],
+  "radius": {
+    "control": 8,
+    "button": 10,
+    "card": 16
+  },
+  "layout": {
+    "mobilePadding": 20,
+    "desktopPadding": 28,
+    "sidebar": 224,
+    "compactSidebar": 184,
+    "rightRail": 288,
+    "topbar": 72,
+    "touchTarget": 44,
+    "breakpoints": [
+      768,
+      1024,
+      1280
+    ]
+  },
+  "motionMs": {
+    "fast": 120,
+    "normal": 160
+  }
+}

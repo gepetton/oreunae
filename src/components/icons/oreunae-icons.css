@@ -1,0 +1,46 @@
+/* Category color is identity, NOT price direction. No icon drop shadows. */
+.oreunae-icon-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  flex-shrink: 0; vertical-align: middle; line-height: 1;
+  color: var(--oreunae-icon-ink); background: var(--oreunae-icon-bg);
+}
+.oreunae-icon-badge > svg { display: block; flex-shrink: 0; }
+.oreunae-icon-badge[data-category="energy"] { --oreunae-icon-ink: #A65F2B; --oreunae-icon-bg: #F6EDE5; }
+.oreunae-icon-badge[data-category="gold"] { --oreunae-icon-ink: #8C6C20; --oreunae-icon-bg: #F7F0DC; }
+.oreunae-icon-badge[data-category="silver"] { --oreunae-icon-ink: #606E7C; --oreunae-icon-bg: #EDF0F4; }
+.oreunae-icon-badge[data-category="copper"] { --oreunae-icon-ink: #A75E49; --oreunae-icon-bg: #F8EDE7; }
+.oreunae-icon-badge[data-category="agriculture"] { --oreunae-icon-ink: #527B43; --oreunae-icon-bg: #EDF3E7; }
+.oreunae-icon-badge[data-category="indices"] { --oreunae-icon-ink: #44734E; --oreunae-icon-bg: #EDF4EA; }
+.oreunae-icon-badge[data-category="rates"] { --oreunae-icon-ink: #496E9B; --oreunae-icon-bg: #EBF0F8; }
+.oreunae-icon-badge[data-category="fx"] { --oreunae-icon-ink: #227B76; --oreunae-icon-bg: #E7F3F0; }
+.oreunae-icon-badge[data-category="sentiment"] { --oreunae-icon-ink: #795D9F; --oreunae-icon-bg: #F0EBF6; }
+.oreunae-icon-badge[data-category="inflation"] { --oreunae-icon-ink: #AA594F; --oreunae-icon-bg: #F8ECE8; }
+.oreunae-icon-badge[data-category="employment"] { --oreunae-icon-ink: #32758A; --oreunae-icon-bg: #E7F1F5; }
+.oreunae-icon-badge[data-category="growth"] { --oreunae-icon-ink: #606BA5; --oreunae-icon-bg: #ECEDF9; }
+.oreunae-icon-badge[data-category="utility"] { --oreunae-icon-ink: #52615B; --oreunae-icon-bg: #EFF3EF; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="energy"], .dark .oreunae-icon-badge[data-category="energy"], .oreunae-icon-badge[data-category="energy"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #E3A16A; --oreunae-icon-bg: #30261F; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="gold"], .dark .oreunae-icon-badge[data-category="gold"], .oreunae-icon-badge[data-category="gold"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #DCC173; --oreunae-icon-bg: #2D291C; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="silver"], .dark .oreunae-icon-badge[data-category="silver"], .oreunae-icon-badge[data-category="silver"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #B4C0CC; --oreunae-icon-bg: #242A32; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="copper"], .dark .oreunae-icon-badge[data-category="copper"], .oreunae-icon-badge[data-category="copper"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #E0A38C; --oreunae-icon-bg: #32241F; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="agriculture"], .dark .oreunae-icon-badge[data-category="agriculture"], .oreunae-icon-badge[data-category="agriculture"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #A6CC86; --oreunae-icon-bg: #24301F; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="indices"], .dark .oreunae-icon-badge[data-category="indices"], .oreunae-icon-badge[data-category="indices"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #A1CA95; --oreunae-icon-bg: #233025; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="rates"], .dark .oreunae-icon-badge[data-category="rates"], .oreunae-icon-badge[data-category="rates"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #9CBCE5; --oreunae-icon-bg: #222B38; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="fx"], .dark .oreunae-icon-badge[data-category="fx"], .oreunae-icon-badge[data-category="fx"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #89C9C0; --oreunae-icon-bg: #1D302E; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="sentiment"], .dark .oreunae-icon-badge[data-category="sentiment"], .oreunae-icon-badge[data-category="sentiment"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #C2A8E2; --oreunae-icon-bg: #2D2638; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="inflation"], .dark .oreunae-icon-badge[data-category="inflation"], .oreunae-icon-badge[data-category="inflation"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #E4AAA0; --oreunae-icon-bg: #342423; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="employment"], .dark .oreunae-icon-badge[data-category="employment"], .oreunae-icon-badge[data-category="employment"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #91C9D8; --oreunae-icon-bg: #1F2D33; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="growth"], .dark .oreunae-icon-badge[data-category="growth"], .oreunae-icon-badge[data-category="growth"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #ADB8EB; --oreunae-icon-bg: #262938; }
+[data-theme="dark"] .oreunae-icon-badge[data-category="utility"], .dark .oreunae-icon-badge[data-category="utility"], .oreunae-icon-badge[data-category="utility"][data-oreunae-theme="dark"] { --oreunae-icon-ink: #C4CFC6; --oreunae-icon-bg: #29332C; }
+[data-theme] .oreunae-icon-badge[data-category="energy"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="energy"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="energy"][data-oreunae-theme="light"] { --oreunae-icon-ink: #A65F2B; --oreunae-icon-bg: #F6EDE5; }
+[data-theme] .oreunae-icon-badge[data-category="gold"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="gold"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="gold"][data-oreunae-theme="light"] { --oreunae-icon-ink: #8C6C20; --oreunae-icon-bg: #F7F0DC; }
+[data-theme] .oreunae-icon-badge[data-category="silver"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="silver"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="silver"][data-oreunae-theme="light"] { --oreunae-icon-ink: #606E7C; --oreunae-icon-bg: #EDF0F4; }
+[data-theme] .oreunae-icon-badge[data-category="copper"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="copper"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="copper"][data-oreunae-theme="light"] { --oreunae-icon-ink: #A75E49; --oreunae-icon-bg: #F8EDE7; }
+[data-theme] .oreunae-icon-badge[data-category="agriculture"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="agriculture"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="agriculture"][data-oreunae-theme="light"] { --oreunae-icon-ink: #527B43; --oreunae-icon-bg: #EDF3E7; }
+[data-theme] .oreunae-icon-badge[data-category="indices"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="indices"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="indices"][data-oreunae-theme="light"] { --oreunae-icon-ink: #44734E; --oreunae-icon-bg: #EDF4EA; }
+[data-theme] .oreunae-icon-badge[data-category="rates"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="rates"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="rates"][data-oreunae-theme="light"] { --oreunae-icon-ink: #496E9B; --oreunae-icon-bg: #EBF0F8; }
+[data-theme] .oreunae-icon-badge[data-category="fx"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="fx"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="fx"][data-oreunae-theme="light"] { --oreunae-icon-ink: #227B76; --oreunae-icon-bg: #E7F3F0; }
+[data-theme] .oreunae-icon-badge[data-category="sentiment"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="sentiment"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="sentiment"][data-oreunae-theme="light"] { --oreunae-icon-ink: #795D9F; --oreunae-icon-bg: #F0EBF6; }
+[data-theme] .oreunae-icon-badge[data-category="inflation"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="inflation"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="inflation"][data-oreunae-theme="light"] { --oreunae-icon-ink: #AA594F; --oreunae-icon-bg: #F8ECE8; }
+[data-theme] .oreunae-icon-badge[data-category="employment"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="employment"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="employment"][data-oreunae-theme="light"] { --oreunae-icon-ink: #32758A; --oreunae-icon-bg: #E7F1F5; }
+[data-theme] .oreunae-icon-badge[data-category="growth"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="growth"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="growth"][data-oreunae-theme="light"] { --oreunae-icon-ink: #606BA5; --oreunae-icon-bg: #ECEDF9; }
+[data-theme] .oreunae-icon-badge[data-category="utility"][data-oreunae-theme="light"], .dark .oreunae-icon-badge[data-category="utility"][data-oreunae-theme="light"], .oreunae-icon-badge[data-category="utility"][data-oreunae-theme="light"] { --oreunae-icon-ink: #52615B; --oreunae-icon-bg: #EFF3EF; }
