@@ -19,8 +19,13 @@ test-results/
 .env
 .env.*
 !.env.example
+*.env
+*.env.*
+!*.env.example
 *.key
 *.pem
+*.dump
+/backups/
 
 # Editor directories and files
 .vscode/*
